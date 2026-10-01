@@ -320,7 +320,7 @@ export default function PersonasClient() {
               <Link href="/docs/fuentes" onClick={() => setMenuOpen(false)} className="flex w-full items-center gap-2.5 px-4 py-3 text-[13px] font-semibold text-ap-secondary hover:bg-ap-surface-hover transition-colors">
                 <Code size={16} /> Fuentes y APIs
               </Link>
-              <Link href="/docs/api" onClick={() => setMenuOpen(false)} className="flex w-full items-center gap-2.5 px-4 py-3 text-[13px] font-semibold text-ap-secondary hover:bg-ap-surface-hover transition-colors">
+              <Link href="/docs" onClick={() => setMenuOpen(false)} className="flex w-full items-center gap-2.5 px-4 py-3 text-[13px] font-semibold text-ap-secondary hover:bg-ap-surface-hover transition-colors">
                 <Code size={16} /> Documentación de API
               </Link>
             </div>

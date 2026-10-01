@@ -27,17 +27,11 @@ export const metadata: Metadata = {
 };
 
 const SECCIONES: { label: string; desc: string; href: string }[] = [
-  { label: 'Mapa interactivo', desc: 'Todos los puntos en tiempo real, con capa de intensidad sísmica y réplicas.', href: '/acopio' },
   { label: 'Refugios', desc: 'Refugios y puntos de resguardo habilitados, por país y ciudad.', href: '/refugios' },
   { label: 'Centros de acopio', desc: 'Dónde llevar o enviar donaciones, por país y ciudad.', href: '/centros' },
-  { label: 'Techo solidario', desc: 'Espacios ofrecidos para alojar temporalmente a familias damnificadas.', href: '/acopio?tipo=alojamiento' },
   { label: 'Donar (internacional)', desc: 'Cómo ayudar desde el exterior, en inglés, francés y portugués.', href: '/donate' },
   { label: 'Blog', desc: 'Información verificada: qué pasó, seguridad ante réplicas y cómo ayudar.', href: '/blog' },
-  { label: 'Teléfonos de emergencia', desc: 'Directorio de números útiles por ciudad y servicio.', href: '/acopio?modal=telefonos' },
-  { label: 'Contacto familiar (RCF)', desc: 'Canales de la Cruz Roja para reconectar con familiares.', href: '/acopio?modal=rcf' },
   { label: 'Voluntarios intérpretes', desc: 'Intérpretes y apoyo remoto para familias afectadas.', href: '/interpretes' },
-  { label: 'Logística de la diáspora', desc: 'Coordinadores que organizan envíos de ayuda al país.', href: '/acopio?modal=coordinadores' },
-  { label: 'Donaciones', desc: 'Canales oficiales verificados para donar.', href: '/acopio?modal=donaciones' },
 ];
 
 const FUENTES: { title: string; body: string }[] = [
@@ -111,7 +105,7 @@ export default async function AcercaPage() {
             </div>
           ))}
         </div>
-        <p className="text-[12px] text-ap-muted mt-3">Cifras actualizadas automáticamente desde la base de datos.</p>
+        <p className="text-[12px] text-ap-muted mt-3">Cifras de la base de datos al cierre del proyecto (corte a julio de 2026).</p>
       </section>
 
       {/* Secciones */}

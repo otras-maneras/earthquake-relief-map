@@ -207,7 +207,7 @@ export default async function DataPage() {
             Estadísticas, Unificación y Cruzamiento
           </h1>
           <p className="text-[16px] text-ap-secondary mt-4 max-w-2xl leading-relaxed">
-            Consolidamos los datos de la emergencia sísmica en Venezuela a través de algoritmos abiertos de deduplicación y cruzamiento de fuentes en tiempo real.
+            Consolidamos los datos de la emergencia sísmica en Venezuela a través de algoritmos abiertos de deduplicación y cruzamiento de fuentes. Datos con corte a julio de 2026.
           </p>
         </div>
       </section>
@@ -231,7 +231,7 @@ export default async function DataPage() {
                 <span className="p-1.5 bg-emerald-500/10 text-emerald-500 rounded-lg"><ShieldCheck size={16} /></span>
               </div>
               <h3 className="text-[32px] font-extrabold text-ap-primary font-outfit mt-2">{stats.centrosLocales}</h3>
-              <p className="text-[12px] text-ap-secondary mt-1">Puntos y acopios validados en vivo</p>
+              <p className="text-[12px] text-ap-secondary mt-1">Puntos y acopios validados</p>
             </div>
 
             <div className="border border-ap-border bg-ap-surface p-6 rounded-xl">
@@ -417,30 +417,35 @@ export default async function DataPage() {
               </div>
             </div>
 
-            {/* Llamado a la colaboración */}
+            {/* Descarga de datos abiertos */}
             <div className="border border-ap-border rounded-xl p-6 bg-gradient-to-r from-blue-500/5 to-emerald-500/5 space-y-4">
               <h3 className="text-[18px] font-extrabold text-ap-primary font-outfit flex items-center gap-2">
-                <Mail className="text-ap-primary" />
-                ¿Manejas una base de datos o API de la emergencia?
+                <Database className="text-ap-primary" />
+                Descarga los datos finales (CC-BY-4.0)
               </h3>
               <p className="text-[14.5px] text-ap-secondary leading-relaxed">
-                Queremos unificar esfuerzos. Si eres parte de una iniciativa independiente, ONG, centro de salud o grupo de rescate con información estructurada de personas, albergues o necesidades, podemos sincronizar vuestras bases de datos de forma automática.
+                Directorio final de centros de acopio y refugios (716 registros) y líneas de emergencia (78), con corte a
+                julio de 2026. Pueden estar desactualizados: el proyecto concluyó y nadie los verifica ya. Atribución: «Datos:
+                AcopioVE (acopiove.org), CC-BY-4.0».
               </p>
-              <div className="pt-2 flex flex-col sm:flex-row gap-3">
-                <Link
-                  href="/docs/api"
-                  className="inline-flex items-center justify-center gap-2 bg-ap-primary hover:bg-ap-primary/90 text-ap-surface text-[14px] font-bold px-4 py-2.5 rounded-lg transition-colors"
-                >
-                  <Database size={16} />
-                  Ver Documentación de la API
-                </Link>
-                <a
-                  href="mailto:data@acopiove.org?subject=Integración%20de%20Datos%20-%20Terremoto%20Venezuela"
-                  className="inline-flex items-center justify-center gap-2 border border-ap-border bg-ap-bg hover:bg-ap-surface-hover text-ap-primary text-[14px] font-bold px-4 py-2.5 rounded-lg transition-colors"
-                >
-                  <Mail size={16} />
-                  Compartir mi API / Base de Datos
-                </a>
+              <div className="pt-2 flex flex-col sm:flex-row flex-wrap gap-3">
+                {[
+                  ['Centros · CSV', '/datos/centros.csv'],
+                  ['Centros · JSON', '/datos/centros.json'],
+                  ['Centros · GeoJSON', '/datos/centros.geojson'],
+                  ['Teléfonos · CSV', '/datos/telefonos.csv'],
+                  ['Teléfonos · JSON', '/datos/telefonos.json'],
+                ].map(([label, href]) => (
+                  <a
+                    key={href}
+                    href={href}
+                    download
+                    className="inline-flex items-center justify-center gap-2 border border-ap-border bg-ap-bg hover:bg-ap-surface-hover text-ap-primary text-[14px] font-bold px-4 py-2.5 rounded-lg transition-colors"
+                  >
+                    <Database size={16} />
+                    {label}
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -508,26 +513,26 @@ export default async function DataPage() {
         <div className="max-w-[1000px] mx-auto px-4 py-12">
           <div className="flex items-center gap-2 mb-6">
             <ExternalLink className="text-ap-primary" />
-            <h2 className="text-[20px] font-extrabold text-ap-primary font-outfit">Enlaces directos a APIs y Fuentes de Datos</h2>
+            <h2 className="text-[20px] font-extrabold text-ap-primary font-outfit">Enlaces directos a Fuentes de Datos</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="space-y-2.5">
-              <h4 className="text-[13px] font-bold text-ap-muted uppercase tracking-wider">APIs Locales de AcopioVE</h4>
+              <h4 className="text-[13px] font-bold text-ap-muted uppercase tracking-wider">Datos y Código de AcopioVE</h4>
               <ul className="space-y-1.5">
                 <li>
-                  <a href="/api/personas" target="_blank" rel="noopener noreferrer" className="text-[13.5px] text-ap-secondary hover:text-ap-primary underline flex items-center gap-1.5">
-                    API Personas (Unificada) <ExternalLink size={12} />
+                  <a href="/datos/centros.csv" download className="text-[13.5px] text-ap-secondary hover:text-ap-primary underline flex items-center gap-1.5">
+                    Centros y refugios (CSV) <ExternalLink size={12} />
                   </a>
                 </li>
                 <li>
-                  <a href="/api/centros" target="_blank" rel="noopener noreferrer" className="text-[13.5px] text-ap-secondary hover:text-ap-primary underline flex items-center gap-1.5">
-                    API Centros (Unificada) <ExternalLink size={12} />
+                  <a href="/datos/centros.geojson" download className="text-[13.5px] text-ap-secondary hover:text-ap-primary underline flex items-center gap-1.5">
+                    Centros y refugios (GeoJSON) <ExternalLink size={12} />
                   </a>
                 </li>
                 <li>
-                  <a href="/api/sismos" target="_blank" rel="noopener noreferrer" className="text-[13.5px] text-ap-secondary hover:text-ap-primary underline flex items-center gap-1.5">
-                    API Sismos y Réplicas <ExternalLink size={12} />
+                  <a href="https://github.com/otras-maneras/earthquake-relief-map" target="_blank" rel="noopener noreferrer" className="text-[13.5px] text-ap-secondary hover:text-ap-primary underline flex items-center gap-1.5">
+                    Código fuente (GitHub) <ExternalLink size={12} />
                   </a>
                 </li>
               </ul>

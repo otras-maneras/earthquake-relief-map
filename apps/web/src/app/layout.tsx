@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: '%s · AcopioVE',
   },
   description:
-    'Plataforma comunitaria de auxilio y datos abiertos ante el terremoto de Venezuela 2026, integrada a la red HelpMaps. Directorio de centros de acopio y refugios en 24 países, documentación técnica, balance institucional y API pública abierta.',
+    'Plataforma comunitaria de auxilio y datos abiertos ante el terremoto de Venezuela 2026, integrada a la red HelpMaps. Directorio de centros de acopio y refugios en 22 países, documentación técnica, balance institucional y datos abiertos.',
 
   keywords: [
     'acopiove',
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     siteName: 'AcopioVE · HelpMaps',
     title: 'AcopioVE · Plataforma Humanitaria, Datos Abiertos y HelpMaps',
     description:
-      'Directorio de centros de acopio y refugios en 24 países, documentación técnica de arquitectura, balance institucional y API pública abierta.',
+      'Directorio de centros de acopio y refugios en 22 países, documentación técnica de arquitectura, balance institucional y datos abiertos.',
     images: [
       {
         url: '/og-image-v2.png',
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'AcopioVE · Plataforma Humanitaria y Datos Abiertos',
     description:
-      'Directorio de centros de acopio, documentación de arquitectura, balance institucional y API pública ante el terremoto de Venezuela 2026.',
+      'Directorio de centros de acopio, documentación de arquitectura, balance institucional y datos abiertos ante el terremoto de Venezuela 2026.',
     images: ['/og-image-v2.png'],
     creator: '@acopiove',
   },
@@ -139,7 +139,7 @@ const jsonLd = {
         'https://helpmaps.net',
         'https://instagram.com/acopiove',
         'https://x.com/acopiove',
-        'https://github.com/otras-maneras/acopiove-api',
+        'https://github.com/otras-maneras/earthquake-relief-map',
       ],
       areaServed: { '@type': 'Country', name: 'Venezuela' },
     },

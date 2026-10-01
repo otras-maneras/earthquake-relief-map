@@ -6,7 +6,7 @@ const SITE_URL = 'https://acopiove.org';
 export const metadata: Metadata = {
   title: 'Mapa interactivo de centros de acopio y refugios en Venezuela y la diáspora',
   description:
-    'Mapa geoespacial en tiempo real con más de 700 centros de acopio y refugios en Venezuela y 24 países de la diáspora. Semáforo de verificación comunitaria, insumos requeridos y búsqueda por proximidad.',
+    'Mapa geoespacial en tiempo real con más de 700 centros de acopio y refugios en Venezuela y 22 países de la diáspora. Semáforo de verificación comunitaria, insumos requeridos y búsqueda por proximidad.',
   keywords: [
     'mapa centros acopio venezuela',
     'refugios terremoto venezuela',

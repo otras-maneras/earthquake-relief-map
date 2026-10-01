@@ -1,0 +1,709 @@
+{
+ "license": "CC-BY-4.0",
+ "attribution": "Datos: AcopioVE (acopiove.org), CC-BY-4.0 — snapshot 2026-10-01",
+ "count": 78,
+ "data": [
+  {
+   "id": "d6438b6f-1c5d-4d98-93e6-70fe9c8138ad",
+   "name": "Policía Nacional Bolivariana",
+   "number": "0800-7654242",
+   "description": "Línea de emergencias y atención nacional de la Policía Nacional Bolivariana.",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-26T11:21:40.433Z"
+  },
+  {
+   "id": "98d7ecc0-e295-40d2-a6d8-ef9b841b81be",
+   "name": "Cruz Roja Mexicana - Búsqueda de Familiares (RCF)",
+   "number": "56 45 85 32 74",
+   "description": "Línea de orientación y apoyo para ubicar a familiares en Venezuela tras los sismos.",
+   "ciudad": "Ciudad de México",
+   "pais": "México",
+   "updated_at": "2026-06-26T11:20:58.799Z"
+  },
+  {
+   "id": "050709a1-ae13-464b-b592-4ad223d5161a",
+   "name": "Centro de Emergencias Baruta",
+   "number": "0412-336-2122",
+   "description": "Fuente: @ecosistemag · @tonyfrangiem · @lole.zamudio",
+   "ciudad": "Baruta",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-26T01:07:07.396Z"
+  },
+  {
+   "id": "9be501af-9301-457d-87dd-7e33549c9b58",
+   "name": "Centro de Emergencias Baruta",
+   "number": "(0212) 943-2401",
+   "description": "Fuente: @ecosistemag · @tonyfrangiem · @lole.zamudio",
+   "ciudad": "Baruta",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-26T01:07:07.393Z"
+  },
+  {
+   "id": "99c3053c-9177-47c1-a113-93cb1e03133f",
+   "name": "Centro de Emergencias Baruta",
+   "number": "(0212) 941-6277",
+   "description": "Fuente: @ecosistemag · @tonyfrangiem · @lole.zamudio",
+   "ciudad": "Baruta",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-26T01:07:07.387Z"
+  },
+  {
+   "id": "3d739244-b68f-4c0c-ad22-9c338cc16b21",
+   "name": "Brigada de Restablecimiento de Vías y Atención de Emergencias (MTT)",
+   "number": "(0212) 537-26-77",
+   "description": "Paramédicos de la autopista (Ángeles de la Autopista)",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.755Z"
+  },
+  {
+   "id": "d41652e7-8494-483c-91b8-0687a4a86439",
+   "name": "VIVEX (Vigilancia de Vías Expresas)",
+   "number": "(0212) 471-14-81",
+   "description": "Vigilancia en autopistas de Caracas",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.736Z"
+  },
+  {
+   "id": "bcbaf2a5-9671-484c-bc5a-83d70b9bcc58",
+   "name": "VIVEX (Vigilancia de Vías Expresas)",
+   "number": "(0212) 471-60-01",
+   "description": "Vigilancia en autopistas de Caracas",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.719Z"
+  },
+  {
+   "id": "9037eec2-2913-487f-86a9-4dfa9bd89f33",
+   "name": "Inspectoría Nacional de Tránsito (INT)",
+   "number": "167",
+   "description": "Tránsito terrestre",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.713Z"
+  },
+  {
+   "id": "f0dac00b-3ba4-4786-ac3c-312850c3811a",
+   "name": "Socorristas Cruz Roja",
+   "number": "(0212) 571-47-13",
+   "description": "Cruz Roja Venezolana",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.693Z"
+  },
+  {
+   "id": "ee96c679-1946-4b75-a412-0c81498247e1",
+   "name": "Organización de Rescate Humboldt",
+   "number": "0414-926-21-39",
+   "description": "Rescate Humboldt (ORH)",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.628Z"
+  },
+  {
+   "id": "389dd1ef-de9c-40d9-acbd-c4ed501371b3",
+   "name": "Organización de Rescate Humboldt",
+   "number": "(0212) 234-22-34",
+   "description": "Rescate Humboldt (ORH)",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.605Z"
+  },
+  {
+   "id": "d230b872-77de-4152-8aac-12c48021ee8e",
+   "name": "Grupo de Rescate Venezuela",
+   "number": "(0212) 977-47-10",
+   "description": "Grupo de rescate voluntario",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.562Z"
+  },
+  {
+   "id": "8bc01293-bb5c-40da-be1f-405329e58ced",
+   "name": "Grupo de Rescate Caracas (El Ávila)",
+   "number": "(0212) 415-46-61",
+   "description": "Rescate en el cerro El Ávila / Parque Nacional Waraira Repano",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.546Z"
+  },
+  {
+   "id": "e5c13716-4023-4cc2-9a78-2ba8facf26ec",
+   "name": "Grupo de Rescate Caracas (El Ávila)",
+   "number": "(0212) 615-63-86",
+   "description": "Rescate en el cerro El Ávila / Parque Nacional Waraira Repano",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.531Z"
+  },
+  {
+   "id": "109db2de-405e-48db-822b-71dc879603c0",
+   "name": "Cuerpo de Emergencias, Rescate y Transmisiones",
+   "number": "(0212) 545-47-47",
+   "description": "Rescate y transmisiones",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.527Z"
+  },
+  {
+   "id": "2080c557-fea3-496c-a215-2dcac312c9d2",
+   "name": "Policía Municipal de El Hatillo",
+   "number": "(0212) 961-16-82",
+   "description": "PoliHatillo",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.521Z"
+  },
+  {
+   "id": "61d236cf-5b09-47e7-88e7-d5bbd199fcc0",
+   "name": "Policía Municipal de Sucre",
+   "number": "(0212) 242-22-11",
+   "description": "PoliSucre",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.517Z"
+  },
+  {
+   "id": "c4c0220b-dd2f-4c92-aa1e-df9c2e989342",
+   "name": "Policía Municipal de Sucre",
+   "number": "(0212) 242-21-11",
+   "description": "PoliSucre",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.512Z"
+  },
+  {
+   "id": "3e730922-831c-4ce7-a2b2-2c832deec3c3",
+   "name": "Policía Municipal de Baruta",
+   "number": "(0212) 943-62-77",
+   "description": "PoliBaruta",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.505Z"
+  },
+  {
+   "id": "089c31bd-9a58-4cff-b5ad-ceafb86631a5",
+   "name": "Policía Municipal de Baruta",
+   "number": "(0212) 943-28-55",
+   "description": "PoliBaruta",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.497Z"
+  },
+  {
+   "id": "dfed602a-be5f-4f27-9f3c-fa8087a8c1d3",
+   "name": "Policía Municipal de Chacao",
+   "number": "(0212) 264-00-50",
+   "description": "PoliChacao",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.488Z"
+  },
+  {
+   "id": "5ed3b9fa-b325-42ff-a4f4-bcbab3d669a9",
+   "name": "Policía Municipal de Chacao",
+   "number": "(0212) 264-12-56",
+   "description": "PoliChacao",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.476Z"
+  },
+  {
+   "id": "e765073a-813f-48a8-8e32-051fed62c114",
+   "name": "Policía Metropolitana",
+   "number": "(0212) 862-58-72",
+   "description": "Policía Metropolitana de Caracas",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.469Z"
+  },
+  {
+   "id": "f8ca8fee-4d8e-4b75-a8f5-0ca6051d60ad",
+   "name": "Policía Metropolitana",
+   "number": "(0212) 862-58-71",
+   "description": "Policía Metropolitana de Caracas",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.462Z"
+  },
+  {
+   "id": "0550a0f5-1dca-4c53-8d03-166ead03e140",
+   "name": "CICPC",
+   "number": "(0212) 571-32-66",
+   "description": "Cuerpo de Investigaciones Científicas, Penales y Criminalísticas",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.455Z"
+  },
+  {
+   "id": "292010fc-67e2-44c7-841f-ce7a00abad77",
+   "name": "CICPC",
+   "number": "(0212) 571-38-44",
+   "description": "Cuerpo de Investigaciones Científicas, Penales y Criminalísticas",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.452Z"
+  },
+  {
+   "id": "5296bd98-4675-4bbb-aca6-03cab06b3ea1",
+   "name": "CICPC",
+   "number": "(0212) 571-35-33",
+   "description": "Cuerpo de Investigaciones Científicas, Penales y Criminalísticas",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.450Z"
+  },
+  {
+   "id": "d29b049d-77cc-476e-9432-d481ce999eff",
+   "name": "Defensa Civil Nacional",
+   "number": "(0212) 662-66-19",
+   "description": "Defensa Civil Nacional",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.444Z"
+  },
+  {
+   "id": "d537b7a9-b8b9-41fd-80cb-5d47a3a9422b",
+   "name": "Defensa Civil Nacional",
+   "number": "(0212) 662-22-52",
+   "description": "Defensa Civil Nacional",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.434Z"
+  },
+  {
+   "id": "a780f81b-23fb-4e44-adef-046e93c6d64c",
+   "name": "Defensa Civil Nacional",
+   "number": "(0212) 483-98-05",
+   "description": "Defensa Civil Nacional",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.432Z"
+  },
+  {
+   "id": "cd45ab57-0862-4b05-9a62-71f99616149d",
+   "name": "Defensa Civil Nacional",
+   "number": "0800-24845",
+   "description": "Defensa Civil Nacional",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.426Z"
+  },
+  {
+   "id": "60ad2fd0-c57d-4e4b-b52d-7c47f204c29b",
+   "name": "Defensa Civil Nacional",
+   "number": "0800-28326",
+   "description": "Defensa Civil Nacional",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.422Z"
+  },
+  {
+   "id": "3bbf3a4f-0aa6-4a08-8ca0-b32f3ecd0596",
+   "name": "Defensa Civil Alcaldía Mayor",
+   "number": "(0212) 662-32-05",
+   "description": "Defensa Civil Alcaldía Mayor",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.416Z"
+  },
+  {
+   "id": "c1945b32-1799-4d37-a0b7-caf749266876",
+   "name": "Defensa Civil Alcaldía Mayor",
+   "number": "(0212) 662-67-59",
+   "description": "Defensa Civil Alcaldía Mayor",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.409Z"
+  },
+  {
+   "id": "938e1fe8-43e4-42ef-b07b-72bf2c0410fb",
+   "name": "Instituto de Protección Civil",
+   "number": "(0212) 545-93-91",
+   "description": "Oficina de Protección Civil",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.402Z"
+  },
+  {
+   "id": "f54597f7-4a63-4157-a488-8bc0e873175d",
+   "name": "Instituto de Protección Civil",
+   "number": "(0212) 662-32-05",
+   "description": "Oficina de Protección Civil",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.383Z"
+  },
+  {
+   "id": "8754ac9c-4e62-43f5-b324-80fd37581382",
+   "name": "Instituto de Protección Civil",
+   "number": "(0212) 662-84-76",
+   "description": "Oficina de Protección Civil",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.371Z"
+  },
+  {
+   "id": "86a16d91-c57b-42a8-9084-1b07f8c15c6d",
+   "name": "Instituto de Protección Civil",
+   "number": "(0212) 631-90-58",
+   "description": "Oficina de Protección Civil",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.368Z"
+  },
+  {
+   "id": "6b0830d4-d653-4381-97f7-c9ed5c4ca74c",
+   "name": "Instituto de Protección Civil",
+   "number": "(0212) 631-86-62",
+   "description": "Oficina de Protección Civil",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.359Z"
+  },
+  {
+   "id": "790dd458-4c99-4482-9c55-38da570ffd7f",
+   "name": "Protección Civil",
+   "number": "0800-2624368",
+   "description": "Línea nacional de Protección Civil",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.358Z"
+  },
+  {
+   "id": "df78a1bf-3ecb-4cf6-a03d-852ed37fc4fc",
+   "name": "Protección Civil",
+   "number": "0800-2668446",
+   "description": "Línea nacional de Protección Civil",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.356Z"
+  },
+  {
+   "id": "17492c5a-8279-421f-ba4a-3e8d1b11409f",
+   "name": "Protección Civil",
+   "number": "0800-5588427",
+   "description": "Línea nacional de Protección Civil",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.355Z"
+  },
+  {
+   "id": "abc60464-4cb1-430f-9079-bdbde5a62b20",
+   "name": "Bomberos San Bernardino",
+   "number": "(0212) 577-92-09",
+   "description": "Cuerpo de bomberos San Bernardino",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.351Z"
+  },
+  {
+   "id": "a693aba3-de87-4290-bec4-fbbd5de1fac1",
+   "name": "Bomberos Plaza Venezuela",
+   "number": "(0212) 793-64-57",
+   "description": "Cuerpo de bomberos Plaza Venezuela",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.346Z"
+  },
+  {
+   "id": "6d8d83f1-43c3-4d42-9440-a9c582b1e691",
+   "name": "Bomberos Plaza Venezuela",
+   "number": "(0212) 793-00-39",
+   "description": "Cuerpo de bomberos Plaza Venezuela",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.324Z"
+  },
+  {
+   "id": "69d42533-3d27-4a44-aa9a-35283c5c8fb0",
+   "name": "Bomberos Miranda",
+   "number": "(0212) 235-69-67",
+   "description": "Cuerpo de bomberos Estado Miranda",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.235Z"
+  },
+  {
+   "id": "ee876dfb-eeeb-45e0-8db5-d5ef0c78e91c",
+   "name": "Bomberos Metropolitanos",
+   "number": "(0212) 545-45-45",
+   "description": "Bomberos Metropolitanos de Caracas",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.230Z"
+  },
+  {
+   "id": "d382a773-a734-4202-84db-57cf9845393c",
+   "name": "Bomberos La Urbina",
+   "number": "(0212) 241-66-41",
+   "description": "Cuerpo de bomberos La Urbina",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.218Z"
+  },
+  {
+   "id": "7d70ebf6-9914-4b04-9918-c350843c0fbc",
+   "name": "Bomberos La Trinidad",
+   "number": "(0212) 943-43-61",
+   "description": "Cuerpo de bomberos La Trinidad",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.211Z"
+  },
+  {
+   "id": "2fa9c098-1e7c-449e-bfb3-2a1f4447562c",
+   "name": "Bomberos La Guaira",
+   "number": "(0212) 331-04-45",
+   "description": "Cuerpo de bomberos La Guaira",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.200Z"
+  },
+  {
+   "id": "ec3cdc90-8a4a-44a4-9d41-bfeb6a7497bb",
+   "name": "Bomberos La Guaira",
+   "number": "(0212) 332-76-20",
+   "description": "Cuerpo de bomberos La Guaira",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.164Z"
+  },
+  {
+   "id": "dd944ec7-0d8f-41d7-9c0a-a3f593fb34c6",
+   "name": "Bomberos El Valle",
+   "number": "(0212) 672-06-36",
+   "description": "Cuerpo de bomberos El Valle",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.133Z"
+  },
+  {
+   "id": "e3d32b68-9292-4eb5-bffd-3f06cb8d8c2c",
+   "name": "Bomberos El Valle",
+   "number": "(0212) 672-01-75",
+   "description": "Cuerpo de bomberos El Valle",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.111Z"
+  },
+  {
+   "id": "70f5fa7a-19c5-4410-9c30-119f13287bbc",
+   "name": "Bomberos El Paraíso",
+   "number": "(0212) 481-09-61",
+   "description": "Cuerpo de bomberos El Paraíso",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.083Z"
+  },
+  {
+   "id": "87ca13de-ea11-4c64-a698-091e825d5fa1",
+   "name": "Bomberos El Cafetal",
+   "number": "(0212) 985-29-77",
+   "description": "Cuerpo de bomberos El Cafetal",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.067Z"
+  },
+  {
+   "id": "a6249f94-d333-4588-b42b-1d19bf0af9ae",
+   "name": "Bomberos El Cafetal",
+   "number": "(0212) 985-36-40",
+   "description": "Cuerpo de bomberos El Cafetal",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.056Z"
+  },
+  {
+   "id": "3fb6ae47-ee3c-421a-949c-1794415fb0e1",
+   "name": "Bomberos Sucre",
+   "number": "(0212) 985-36-40",
+   "description": "Cuerpo de bomberos Sucre",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:08.029Z"
+  },
+  {
+   "id": "b09e1e47-3c79-4073-8b72-3f93e72046c4",
+   "name": "Bomberos del Este (Cafetal)",
+   "number": "(0212) 985-50-60",
+   "description": "Cuerpo de bomberos Cafetal",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.987Z"
+  },
+  {
+   "id": "3b440c75-4107-47e5-bb6e-d4e224b95302",
+   "name": "Bomberos del Este (Cafetal)",
+   "number": "(0212) 987-43-34",
+   "description": "Cuerpo de bomberos Cafetal",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.933Z"
+  },
+  {
+   "id": "5b5722c5-3576-4b35-aadd-a5ddbf56e68f",
+   "name": "Bomberos Chacao",
+   "number": "(0212) 265-32-61",
+   "description": "Cuerpo de bomberos Chacao",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.931Z"
+  },
+  {
+   "id": "3d203c6c-685d-46ea-a102-2ab49f024d5d",
+   "name": "Bomberos Catia La Mar",
+   "number": "(0212) 351-99-66",
+   "description": "Cuerpo de bomberos Catia La Mar",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.927Z"
+  },
+  {
+   "id": "68b03e7c-9070-4c12-8471-f00c68d5fdf1",
+   "name": "Bomberos Antímano",
+   "number": "(0212) 472-20-54",
+   "description": "Cuerpo de bomberos Antímano",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.924Z"
+  },
+  {
+   "id": "2ab40fb0-9161-41ca-b2fd-c0f85b0eded7",
+   "name": "Servicio de Ambulancia Metropolitano",
+   "number": "(0212) 577-92-09",
+   "description": "Servicio público de ambulancias",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.911Z"
+  },
+  {
+   "id": "ed73870b-7bc1-45cb-b832-a80a1870b237",
+   "name": "Servicio de Ambulancia Metropolitano",
+   "number": "(0212) 545-46-55",
+   "description": "Servicio público de ambulancias",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.890Z"
+  },
+  {
+   "id": "e0727c2e-5d06-4aa1-b69d-da0fc73c2cf7",
+   "name": "Servicio de Ambulancia Metropolitano",
+   "number": "(0212) 545-45-45",
+   "description": "Servicio público de ambulancias",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.879Z"
+  },
+  {
+   "id": "77119ed2-7718-4e6d-a66c-fe3dbdcd0622",
+   "name": "Rescarven",
+   "number": "(0212) 993-33-67",
+   "description": "Emergencias médicas Rescarven",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.876Z"
+  },
+  {
+   "id": "514821a9-ac03-488e-9496-55fd27c0387d",
+   "name": "Rescarven",
+   "number": "(0212) 993-13-10",
+   "description": "Emergencias médicas Rescarven",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.872Z"
+  },
+  {
+   "id": "113e9c77-7ee3-41c8-9897-6165939599f9",
+   "name": "Rescarven",
+   "number": "(0212) 993-69-91",
+   "description": "Emergencias médicas Rescarven",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.867Z"
+  },
+  {
+   "id": "50710fcc-09d0-4952-82bf-9b4bcd68b548",
+   "name": "Rescarven",
+   "number": "(0212) 993-69-11",
+   "description": "Emergencias médicas Rescarven",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.779Z"
+  },
+  {
+   "id": "a4d4eae2-4bf3-4277-abe2-d4fb447bb23d",
+   "name": "Aeroambulancias",
+   "number": "(0212) 991-79-40",
+   "description": "Servicio de aeroambulancias",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.745Z"
+  },
+  {
+   "id": "469f6564-d76b-4dd5-a261-a9143570864c",
+   "name": "Aeroambulancias",
+   "number": "(0212) 992-89-90",
+   "description": "Servicio de aeroambulancias",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.697Z"
+  },
+  {
+   "id": "1febb8f4-bd4d-4243-afbe-d15dbb472c16",
+   "name": "Aeroambulancias",
+   "number": "(0212) 992-89-80",
+   "description": "Servicio de aeroambulancias",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.655Z"
+  },
+  {
+   "id": "b422d501-827a-42ca-b5d7-a17c3a97bc22",
+   "name": "Aeroambulancias",
+   "number": "(0212) 993-25-41",
+   "description": "Servicio de aeroambulancias",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.625Z"
+  },
+  {
+   "id": "d55b7dd7-dabf-490d-882c-7166add4356d",
+   "name": "Emergencias Movistar",
+   "number": "911",
+   "description": "Número general desde Movistar",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.617Z"
+  },
+  {
+   "id": "433f0a8d-2a30-4dd3-a4e9-85d3ee29d278",
+   "name": "Emergencias Digitel",
+   "number": "112",
+   "description": "Número general desde Digitel",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.614Z"
+  },
+  {
+   "id": "8657fae2-0ece-4c25-890f-350271358511",
+   "name": "Emergencias Movilnet",
+   "number": "*1",
+   "description": "Número general desde Movilnet",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.606Z"
+  },
+  {
+   "id": "a30f137d-5e39-4b14-96a6-9ce2bfe5abaa",
+   "name": "Emergencias CANTV",
+   "number": "171",
+   "description": "Número general desde teléfono fijo CANTV",
+   "ciudad": "Caracas",
+   "pais": "Venezuela",
+   "updated_at": "2026-06-25T22:05:07.586Z"
+  }
+ ]
+}

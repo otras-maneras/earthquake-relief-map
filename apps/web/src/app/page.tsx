@@ -27,9 +27,9 @@ export const revalidate = 300;
 const SITE_URL = 'https://acopiove.org';
 
 export const metadata: Metadata = {
-  title: 'AcopioVE + HelpMaps · Plataforma Humanitaria, Datos Abiertos y API Pública',
+  title: 'AcopioVE + HelpMaps · Plataforma Humanitaria y Datos Abiertos',
   description:
-    'Plataforma comunitaria de auxilio y datos abiertos ante el terremoto de Venezuela 2026, integrada a la red HelpMaps. Directorio de centros de acopio y refugios en 24 países, documentación técnica, resumen ejecutivo y API pública abierta bajo licencia CC-BY-4.0.',
+    'Plataforma comunitaria de auxilio y datos abiertos ante el terremoto de Venezuela 2026, integrada a la red HelpMaps. Directorio de centros de acopio y refugios en 22 países, documentación técnica, resumen ejecutivo y datos abiertos bajo licencia CC-BY-4.0. Proyecto concluido en octubre de 2026.',
   keywords: [
     'acopiove',
     'helpmaps',
@@ -40,8 +40,7 @@ export const metadata: Metadata = {
     'donaciones venezuela',
     'ayuda humanitaria venezuela',
     'datos abiertos venezuela',
-    'api humanitaria',
-    'api acopiove',
+    'código abierto',
     'ocha hdx venezuela',
   ],
   alternates: {
@@ -54,7 +53,7 @@ export const metadata: Metadata = {
     siteName: 'AcopioVE · HelpMaps',
     title: 'AcopioVE + HelpMaps · Plataforma Humanitaria y Red de Datos Abiertos',
     description:
-      'Coordinación humanitaria, directorio de centros de acopio y refugios, documentación de arquitectura, resumen ejecutivo y API pública abierta ante la emergencia en Venezuela.',
+      'Coordinación humanitaria, directorio de centros de acopio y refugios, documentación de arquitectura, resumen ejecutivo y datos abiertos ante la emergencia en Venezuela.',
     images: [
       {
         url: '/og-image-v2.png',
@@ -68,7 +67,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'AcopioVE + HelpMaps · Plataforma Humanitaria y Datos Abiertos',
     description:
-      'Directorio de centros de acopio, documentación de arquitectura, resumen del proyecto y API pública para la emergencia en Venezuela.',
+      'Directorio de centros de acopio, documentación de arquitectura, resumen del proyecto y datos abiertos para la emergencia en Venezuela.',
     images: ['/og-image-v2.png'],
   },
 };
@@ -76,7 +75,7 @@ export const metadata: Metadata = {
 const FAQS = [
   {
     q: '¿Qué es AcopioVE y qué información reúne la plataforma?',
-    a: 'AcopioVE es una plataforma humanitaria y de datos abiertos desarrollada ante el terremoto de Venezuela de 2026. Centraliza información verificada sobre centros de acopio en 24 países, albergues de resguardo, líneas de emergencia y canales de ayuda internacional bajo licencia Creative Commons (CC-BY-4.0).',
+    a: 'AcopioVE es una plataforma humanitaria y de datos abiertos desarrollada ante el terremoto de Venezuela de 2026. Centraliza información verificada sobre centros de acopio en 22 países, albergues de resguardo, líneas de emergencia y canales de ayuda internacional bajo licencia Creative Commons (CC-BY-4.0).',
     href: '/resumen',
     linkText: 'Conocer más del proyecto',
   },
@@ -87,14 +86,14 @@ const FAQS = [
     linkText: 'Visitar HelpMaps Global',
   },
   {
-    q: '¿Cómo pueden las organizaciones, ONG y desarrolladores acceder a la API pública?',
-    a: 'La API pública REST y GeoJSON está abierta y disponible sin necesidad de claves para consultas estándar. Los endpoints /v1/centros y /v1/telefonos permiten integrar datos en tiempo real en formatos JSON, GeoJSON y CSV.',
-    href: '/docs/api',
-    linkText: 'Consultar documentación de la API',
+    q: '¿El proyecto sigue activo? ¿Dónde están el código y los datos?',
+    a: 'AcopioVE concluyó su operación en octubre de 2026. El código fuente (licencia MIT) y los datos finales de centros de acopio, refugios y teléfonos de emergencia (CC-BY-4.0, con corte a julio de 2026) son abiertos: los datos se descargan en /data y el código está en el repositorio earthquake-relief-map de GitHub. La API pública fue dada de baja.',
+    href: '/data',
+    linkText: 'Descargar los datos abiertos',
   },
   {
     q: '¿Dónde consultar el resumen ejecutivo del proyecto y su impacto?',
-    a: 'El balance institucional completo, con métricas de atención, coordinación con la diáspora en 24 países, lecciones aprendidas y resultados técnicos, está disponible en formato interactivo en /resumen.',
+    a: 'El balance institucional completo, con métricas de atención, coordinación con la diáspora en 22 países, lecciones aprendidas y resultados técnicos, está disponible en formato interactivo en /resumen.',
     href: '/resumen',
     linkText: 'Ver resumen ejecutivo',
   },
@@ -105,6 +104,13 @@ const FAQS = [
     linkText: 'Descargar datos abiertos',
   },
 ];
+
+// El campo `pais` llega sin normalizar ('USA', 'venezuela', ...): unifica alias y mayúsculas.
+const PAIS_ALIAS: Record<string, string> = { usa: 'estados unidos', 'ee.uu.': 'estados unidos', 'ee. uu.': 'estados unidos', eeuu: 'estados unidos' };
+function normPais(p: string | null): string {
+  const k = (p ?? '').trim().toLowerCase();
+  return PAIS_ALIAS[k] ?? k;
+}
 
 export default async function LandingPage() {
   // Obtención dinámica de métricas desde la base de datos
@@ -123,7 +129,7 @@ export default async function LandingPage() {
   const totalCentros = rows.length || 716;
   const acopiosCount = rows.filter((r) => r.tipo === 'acopio').length || 664;
   const refugiosCount = rows.filter((r) => r.tipo === 'refugio').length || 52;
-  const paisesCount = new Set(rows.map((r) => r.pais).filter(Boolean)).size || 24;
+  const paisesCount = new Set(rows.map((r) => normPais(r.pais)).filter(Boolean)).size || 22;
   const ciudadesCount = new Set(rows.filter((r) => r.ciudad).map((r) => `${r.pais}|${r.ciudad}`)).size || 110;
   const telefonosCount = tels.length || 78;
 
@@ -146,7 +152,7 @@ export default async function LandingPage() {
         name: 'AcopioVE & HelpMaps Alliance',
         url: SITE_URL,
         logo: `${SITE_URL}/brand/logo-lockup.png`,
-        sameAs: ['https://helpmaps.net', 'https://x.com/acopiove', 'https://instagram.com/acopiove', 'https://github.com/otras-maneras/acopiove-api'],
+        sameAs: ['https://helpmaps.net', 'https://x.com/acopiove', 'https://instagram.com/acopiove', 'https://github.com/otras-maneras/earthquake-relief-map'],
         description:
           'Iniciativa humanitaria independiente para la respuesta coordinada, directorio de centros de acopio, refugios y datos abiertos ante el terremoto de Venezuela de 2026.',
         areaServed: { '@type': 'Country', name: 'Venezuela' },
@@ -156,7 +162,7 @@ export default async function LandingPage() {
         '@id': `${SITE_URL}/#dataset`,
         name: 'Directorio de Centros de Acopio, Refugios y Líneas de Emergencia - Venezuela 2026',
         description:
-          'Catálogo georreferenciado de centros de acopio, albergues y teléfonos de emergencia en Venezuela y 24 países de la diáspora. Datos abiertos bajo licencia CC-BY-4.0.',
+          'Catálogo georreferenciado de centros de acopio, albergues y teléfonos de emergencia en Venezuela y 22 países de la diáspora. Datos abiertos bajo licencia CC-BY-4.0.',
         url: `${SITE_URL}/data`,
         license: 'https://creativecommons.org/licenses/by/4.0/',
         creator: { '@id': `${SITE_URL}/#organization` },
@@ -164,12 +170,12 @@ export default async function LandingPage() {
           {
             '@type': 'DataDownload',
             encodingFormat: 'application/json',
-            contentUrl: `${SITE_URL}/v1/centros`,
+            contentUrl: `${SITE_URL}/datos/centros.json`,
           },
           {
             '@type': 'DataDownload',
             encodingFormat: 'text/csv',
-            contentUrl: `${SITE_URL}/v1/centros?format=csv`,
+            contentUrl: `${SITE_URL}/datos/centros.csv`,
           },
         ],
       },
@@ -197,7 +203,7 @@ export default async function LandingPage() {
         <div className="max-w-[1000px] mx-auto px-4 py-2 flex items-center justify-between gap-4 text-[12px] md:text-[13px]">
           <span className="font-medium text-blue-100 truncate">
             <strong className="text-white">AcopioVE</strong> se ha fusionado con la red de{' '}
-            <strong className="text-white">HelpMaps</strong> para unificar la respuesta de emergencia.
+            <strong className="text-white">HelpMaps</strong> para unificar la respuesta de emergencia. Proyecto concluido en octubre de 2026.
           </span>
           <div className="flex items-center gap-3 shrink-0 text-[12px]">
             <a
@@ -230,9 +236,9 @@ export default async function LandingPage() {
           </h1>
 
           <p className="text-[16px] md:text-[19px] text-ap-secondary mt-5 max-w-3xl leading-relaxed">
-            Eliminamos la asimetría de información y conectamos necesidades urgentes con recursos verificados en tiempo
-            real. Directorio de centros de acopio y albergues en 24 países, documentación técnica de arquitectura y API
-            pública abierta para la comunidad humanitaria internacional.
+            Buscamos eliminar la asimetría de información y conectar necesidades urgentes con recursos verificados.
+            Directorio de centros de acopio y albergues en 22 países (datos con corte a julio de 2026), documentación
+            técnica de arquitectura y código y datos abiertos para la comunidad humanitaria internacional.
           </p>
 
           {/* Botones de acción principal */}
@@ -250,7 +256,7 @@ export default async function LandingPage() {
               className="inline-flex items-center justify-center gap-2 bg-white text-ap-primary hover:bg-slate-50 border border-ap-border px-5 py-3.5 rounded-xl font-bold text-[14px] transition-all shadow-agentos-sm"
             >
               <Code2 size={17} className="text-[#003D8F]" />
-              <span>Documentación & APIs</span>
+              <span>Documentación</span>
             </Link>
 
             <Link
@@ -540,26 +546,26 @@ export default async function LandingPage() {
               </div>
             </div>
 
-            {/* Tarjeta 6: API REST Pública */}
+            {/* Tarjeta 6: Código y datos abiertos */}
             <div className="border border-ap-border bg-slate-50/40 hover:bg-slate-50/80 transition-all rounded-2xl p-6 flex flex-col justify-between group shadow-sm hover:shadow-md">
               <div>
                 <div className="w-11 h-11 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center mb-4">
                   <Server size={22} />
                 </div>
                 <h3 className="text-[17px] font-extrabold text-ap-primary font-outfit group-hover:text-slate-900 transition-colors">
-                  API REST Pública y Abierta
+                  Código y Datos Abiertos
                 </h3>
                 <p className="text-[13px] text-ap-secondary mt-2 leading-relaxed">
-                  Servicio activo de alta concurrencia para consulta de centros, refugios y teléfonos. Sin cuotas de uso ni
-                  registro obligatorio para uso humanitario.
+                  Código fuente bajo licencia MIT y datos finales de centros, refugios y teléfonos bajo CC-BY-4.0, listos
+                  para reutilizar en futuras emergencias.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-ap-border/60 flex items-center gap-3">
-                <Link href="/docs/api" className="text-[13px] font-bold text-[#003D8F] hover:underline">
-                  Guía de endpoints
+                <Link href="/data" className="text-[13px] font-bold text-[#003D8F] hover:underline">
+                  Descargar datos
                 </Link>
                 <span className="text-ap-muted">·</span>
-                <Link href="/docs/fuentes" className="text-[13px] font-bold text-ap-secondary hover:underline">
+                <Link href="/docs/fuentes" className="text-[13px] font-semibold text-ap-secondary hover:underline">
                   Fuentes de datos
                 </Link>
               </div>
@@ -582,7 +588,7 @@ export default async function LandingPage() {
               </h3>
               <p className="text-[14px] text-ap-secondary mt-3 leading-relaxed">
                 Accede a la presentación interactiva elaborada por el equipo con todo el desglose del proyecto: arquitectura,
-                números de atención, coordinación con 24 países de la diáspora, neutralización de rumores con IA y la
+                números de atención, coordinación con 22 países de la diáspora, neutralización de rumores con IA y la
                 sinergia con HelpMaps.
               </p>
             </div>
@@ -607,10 +613,10 @@ export default async function LandingPage() {
                 <Code2 size={14} /> Especificación Técnica
               </div>
               <h3 className="text-[20px] font-extrabold text-ap-primary font-outfit">
-                Documentación Técnica & APIs de Emergencia
+                Documentación Técnica del Proyecto
               </h3>
               <p className="text-[14px] text-ap-secondary mt-3 leading-relaxed">
-                Guía completa sobre los contratos de datos, endpoints públicos (<code className="text-xs bg-slate-100 px-1 py-0.5 rounded">/v1/centros</code>, <code className="text-xs bg-slate-100 px-1 py-0.5 rounded">/v1/telefonos</code>), esquema de base de datos PostgreSQL, licencia abierta y políticas de privacidad.
+                Guía completa sobre los contratos de datos, arquitectura, esquema de base de datos PostgreSQL, licencia abierta y políticas de privacidad.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-ap-border flex items-center justify-between">
@@ -620,9 +626,6 @@ export default async function LandingPage() {
               >
                 <span>Ver Documentación Técnica</span>
                 <ArrowRight size={14} />
-              </Link>
-              <Link href="/docs/api" className="text-[13px] font-semibold text-ap-muted hover:text-ap-primary">
-                Especificación REST
               </Link>
             </div>
           </div>
@@ -689,11 +692,11 @@ export default async function LandingPage() {
       <section className="border-t border-ap-border bg-[#003D8F] text-white py-14">
         <div className="max-w-[1000px] mx-auto px-4 text-center">
           <h2 className="text-[26px] sm:text-[34px] font-extrabold font-outfit leading-tight">
-            Accede a la documentación, resumen y APIs abiertas
+            Accede a la documentación, el resumen y los datos abiertos
           </h2>
           <p className="text-blue-100 text-[15px] mt-3 max-w-2xl mx-auto leading-relaxed">
-            Consulta los resultados del despliegue humanitario, los datasets abiertos en CC-BY-4.0 o integra la API pública
-            en tus aplicaciones.
+            Consulta los resultados del despliegue humanitario y descarga los datasets abiertos en CC-BY-4.0 para
+            reutilizarlos en tus proyectos.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
             <Link

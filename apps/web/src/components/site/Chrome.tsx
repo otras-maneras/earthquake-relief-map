@@ -23,7 +23,7 @@ export const BRAND_PALETTE = {
 export const ES_NAV: NavItem[] = [
   { label: 'Inicio', href: '/' },
   { label: 'Resumen', href: '/resumen' },
-  { label: 'Docs & API', href: '/docs' },
+  { label: 'Documentación', href: '/docs' },
   { label: 'Datos Abiertos', href: '/data' },
   { label: 'Refugios', href: '/refugios' },
   { label: 'Centros', href: '/centros' },
@@ -106,12 +106,12 @@ export function SiteFooter({ nav = ES_NAV, note = DEFAULT_FOOTER_NOTE }: { nav?:
             </Link>
           ))}
           <a
-            href="https://github.com/otras-maneras/acopiove-api"
+            href="https://github.com/otras-maneras/earthquake-relief-map"
             target="_blank"
             rel="noopener noreferrer"
-            title="API de Datos en GitHub"
+            title="Código abierto en GitHub"
             className="text-ap-muted hover:text-ap-primary transition-colors inline-flex items-center ml-1"
-            aria-label="GitHub de la API de AcopioVE"
+            aria-label="Repositorio de AcopioVE en GitHub"
           >
             <Github size={17} />
           </a>

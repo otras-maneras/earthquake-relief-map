@@ -1,16 +1,26 @@
 # AcopioVE
 
-> Mapa interactivo y directorio de emergencia para el terremoto de Venezuela de 2026 (sismos de magnitud 7,2 y 7,5 del 24 de junio): refugios habilitados, centros de acopio, teléfonos de emergencia y cómo ayudar desde dentro del país y desde el exterior.
+> Plataforma humanitaria y de datos abiertos creada para el terremoto de Venezuela de 2026 (sismos de magnitud 7,2 y 7,5 del 24 de junio), integrada a la red HelpMaps (helpmaps.net). Directorio de centros de acopio, refugios y teléfonos de emergencia. **El proyecto concluyó en octubre de 2026**: ya no se actualiza, y el código y los datos finales son abiertos.
+
+## Estado del proyecto
+
+- **Concluido en octubre de 2026.** Los datos tienen corte a julio de 2026 y pueden estar desactualizados; confirma por otra vía antes de depender de ellos.
+- El mapa interactivo, el buscador de personas y la API pública fueron dados de baja.
+- **Código fuente** (licencia MIT): https://github.com/otras-maneras/earthquake-relief-map
+- **Datos finales** (CC-BY-4.0, atribución "Datos: AcopioVE (acopiove.org), CC-BY-4.0"): https://acopiove.org/data
 
 ## Páginas principales
 
-- [Mapa interactivo](https://acopiove.org/): Mapa en tiempo real con cientos de refugios y centros de acopio activos, capa de intensidad sísmica (ShakeMap USGS) y epicentros del terremoto.
-- [Centros de acopio](https://acopiove.org/centros): Directorio de centros de acopio por país y ciudad (dónde llevar o enviar donaciones).
-- [Refugios habilitados](https://acopiove.org/refugios): Directorio de refugios y puntos de resguardo por país y ciudad (dónde refugiarse).
-- [Búsqueda de personas y mapa consolidado](https://acopiove.org/busquedas): Buscador y mapa que cruzan en una sola vista personas reportadas como desaparecidas o localizadas, centros de acopio, refugios, teléfonos, puntos de salud, daños y reportes de servicios, con fichas conciliadas entre fuentes.
-- [Mapa 3D de edificios dañados](https://acopiove.org/mapa-3d): Vista 3D de edificios en Catia La Mar (La Guaira) evaluados por Microsoft AI for Good Lab (9.128 polígonos, % de daño estimado sobre imágenes satelitales Vantor del 25 de junio de 2026, publicados en OCHA HDX), con capas adicionales de personas, ayuda y sismos.
-- [Voluntarios intérpretes](https://acopiove.org/interpretes): Directorio de intérpretes y traductores voluntarios (apoyo de idiomas presencial y remoto) para la emergencia. Versión en inglés en https://acopiove.org/interpretes/en.
-- [Cómo ayudar / Donar (internacional)](https://acopiove.org/donate): Landing multiidioma (inglés, francés, portugués) para donantes del exterior, con qué ofrece AcopioVE y cómo ayudar.
+- [Inicio](https://acopiove.org/): Presentación del proyecto, cifras de cierre y accesos a la documentación y los datos.
+- [Resumen ejecutivo](https://acopiove.org/resumen): Balance del proyecto: origen, métricas, alianza con HelpMaps y lecciones.
+- [Datos abiertos](https://acopiove.org/data): Descarga de centros, refugios y teléfonos en CSV, JSON y GeoJSON, y estadísticas de las fuentes integradas.
+- [Centros de acopio](https://acopiove.org/centros): Directorio por país y ciudad (dónde llevar o enviar donaciones).
+- [Refugios](https://acopiove.org/refugios): Directorio de refugios y puntos de resguardo por país y ciudad.
+- [Documentación técnica](https://acopiove.org/docs): Arquitectura del sistema, modelo de datos, seguridad y privacidad.
+- [Fuentes de datos](https://acopiove.org/docs/fuentes): Catálogo de las plataformas y APIs externas que se integraron, con su atribución.
+- [Voluntarios intérpretes](https://acopiove.org/interpretes): Directorio de intérpretes y traductores voluntarios. Versión en inglés en https://acopiove.org/interpretes/en
+- [Cómo ayudar / Donar (internacional)](https://acopiove.org/donate): Landing multiidioma (inglés, francés, portugués) para donantes del exterior.
+- [Acerca de](https://acopiove.org/acerca): Qué es AcopioVE, qué datos reunió y cómo los verificó.
 - [Blog](https://acopiove.org/blog): Artículos informativos sobre el terremoto, refugios, seguridad y cómo ayudar.
 
 ## Blog (artículos)
@@ -20,35 +30,12 @@
 - [Réplicas y seguridad: qué hacer antes, durante y después de un sismo](https://acopiove.org/blog/que-hacer-replicas-seguridad-sismica): Guía práctica de seguridad sísmica y kit de emergencia.
 - [Cómo ayudar a los afectados por el terremoto en Venezuela](https://acopiove.org/blog/como-ayudar-venezuela-terremoto): Qué donar, dónde llevarlo y cómo enviar ayuda desde el exterior.
 
-## Información del proyecto
+## Datos finales
 
-- **400+ puntos activos** (centros de acopio y refugios) en 16 países: Venezuela, Colombia, Estados Unidos, Ecuador, España, Argentina, Uruguay, Panamá, Alemania, Italia, Canadá, Chile, México, Perú, Puerto Rico y Guatemala.
-- **Refugios habilitados** en Caracas y La Guaira tras el terremoto, geolocalizados y con su estado (abierto/lleno/cerrado).
-- **Directorio telefónico de emergencia** organizado por ciudad y tipo de servicio.
-- **Voluntarios intérpretes** y **contactos de logística de la diáspora** para coordinar envíos de ayuda al exterior.
-- **Canales oficiales de donación** verificados (p. ej. World Central Kitchen, Cáritas Venezuela).
-- **Guía RCF (Restablecimiento del Contacto Familiar)**: canales oficiales de la Cruz Roja.
-
-## Datos y fuentes
-
-- **Atributos de los puntos**: Nombre, dirección, coordenadas GPS, horario, contacto, estado operativo, tipo (acopio/refugio/alojamiento), artículos recibidos y fuente de verificación.
-- **Datos sísmicos**: Epicentros e intensidad (MMI) del ShakeMap oficial del USGS (evento us6000t7zp, M7,5).
-- **Fuentes de verificación**: fuentes comunitarias públicas verificadas, redes sociales, hojas colaborativas y reportes de organizaciones asociadas.
-
-## API pública (para desarrolladores)
-
-API abierta, de solo lectura, para construir mapas y apps con los datos de la emergencia. Sin autenticación. Datos bajo CC-BY-4.0 (atribución: "Datos: AcopioVE (acopiove.org), CC-BY-4.0").
-
-- [Documentación técnica](https://acopiove.org/docs/api): Guía de integración, formatos de respuesta (JSON/GeoJSON/CSV) y ejemplos de código.
-- [Documentación interactiva](https://api.acopiove.org/v1/docs): Referencia de la API (OpenAPI).
-- [Especificación OpenAPI](https://api.acopiove.org/v1/openapi.json): Esquema OpenAPI 3.1.
-- [Directorio de ayuda unificado](https://api.acopiove.org/v1/puntos): **Un solo endpoint** con acopios, refugios, teléfonos de emergencia y puntos de salud/hospitales, ideal para apps y chatbots. Filtros `tipo=acopio,refugio,salud,telefono`, `ciudad`, `pais`, `near=lat,lng&radius=`. Formatos `?format=json|geojson|csv`. No incluye personas (PII).
-- [Búsqueda de personas (reunificación)](https://api.acopiove.org/v1/personas): Busca personas reportadas como desaparecidas o localizadas por nombre (`q=`) o cédula (`cedula=`), para que un chatbot responda "¿está [nombre] reportado?". PII-segura: cédula enmascarada, sin teléfono ni GPS, ubicación de menores omitida. Requiere término de búsqueda (no es un volcado).
-- [Centros y refugios](https://api.acopiove.org/v1/centros): Lista con filtros `tipo`, `ciudad`, `estado`, `pais`, `recibe`, `near=lat,lng&radius=`, `bbox=`. Paginación `limit`/`offset`; `total` en `meta` y en la raíz del JSON. Formatos `?format=json|geojson|csv` (GeoJSON listo para Leaflet/Mapbox).
-- [Teléfonos de emergencia](https://api.acopiove.org/v1/telefonos): Lista con filtros `ciudad`, `pais`.
-- [Metadatos](https://api.acopiove.org/v1/meta): Conteos, última actualización y licencia.
-- [Contribuir puntos](https://api.acopiove.org/v1/submissions): `POST` para que otras plataformas sugieran nuevos puntos de apoyo (entran como pendientes; un admin los revisa antes de publicarlos). Consulta de estado con `GET /v1/submissions/{id}`.
-- [Boletín de noticias (IA)](https://acopiove.org/api/news/summary?sources=all): Resumen Markdown de la emergencia sísmica a partir de RSS verificados. `GET` lee la caché sin regenerar; `POST /api/news/summary` con `{"sources":["all"]}` refresca. Historial incluido. Base: `acopiove.org/api/news` (no `api.acopiove.org`). Ver https://acopiove.org/docs/api#boletin-noticias
+- **716 puntos** (664 centros de acopio y 52 refugios) en 22 países, y **78 teléfonos de emergencia**, con corte a julio de 2026.
+- Atributos de cada punto: nombre, dirección, coordenadas, horario, contacto, estado operativo, tipo (acopio/refugio), artículos que recibe, necesidad actual y fuente.
+- Descargas: [centros.csv](https://acopiove.org/datos/centros.csv), [centros.json](https://acopiove.org/datos/centros.json), [centros.geojson](https://acopiove.org/datos/centros.geojson), [telefonos.csv](https://acopiove.org/datos/telefonos.csv), [telefonos.json](https://acopiove.org/datos/telefonos.json).
+- Datos sísmicos usados durante la emergencia: ShakeMap oficial del USGS (evento us6000t7zp, M7,5).
 
 ## Enlaces opcionales
 

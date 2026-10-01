@@ -10,6 +10,8 @@ const nextConfig = {
       { source: '/mapa-3d', destination: '/', permanent: false },
       { source: '/busquedas', destination: '/', permanent: false },
       { source: '/busqueda-avanzada', destination: '/', permanent: false },
+      // La API pública fue dada de baja (oct 2026): su documentación se retiró.
+      { source: '/docs/api', destination: '/docs', permanent: true },
     ];
   },
 

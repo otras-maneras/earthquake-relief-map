@@ -139,24 +139,6 @@ export default async function DocsPage() {
           {/* Contenido principal */}
           <article className="w-full md:flex-1 min-w-0 space-y-12">
             
-            {/* Banner API Pública */}
-            <div className="border border-ap-border rounded-xl p-5 bg-ap-surface flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
-              <div>
-                <span className="inline-block text-[10px] font-extrabold text-ap-primary bg-ap-bg border border-ap-border px-2 py-0.5 rounded-full uppercase tracking-wider">Desarrolladores</span>
-                <h2 className="text-[16px] font-extrabold text-ap-primary font-outfit mt-1.5">API Pública de Datos Abiertos</h2>
-                <p className="text-[13.5px] text-ap-secondary mt-1 leading-relaxed">
-                  Acceda de forma programática a la base de datos de centros de acopio, refugios y teléfonos en formatos JSON, GeoJSON y CSV.
-                </p>
-              </div>
-              <Link
-                href="/docs/api"
-                className="shrink-0 inline-flex items-center gap-1.5 bg-ap-primary text-ap-surface hover:opacity-90 transition-opacity px-4 py-2.5 rounded-lg font-bold text-[13px]"
-              >
-                Ver API Docs
-                <ArrowRight size={14} />
-              </Link>
-            </div>
-
             {/* Banner Fuentes y APIs públicas que usamos */}
             <div className="border border-ap-border rounded-xl p-5 bg-ap-surface flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
               <div>

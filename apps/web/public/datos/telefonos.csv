@@ -1,0 +1,79 @@
+id,name,number,description,ciudad,pais,updated_at
+d6438b6f-1c5d-4d98-93e6-70fe9c8138ad,Policía Nacional Bolivariana,0800-7654242,Línea de emergencias y atención nacional de la Policía Nacional Bolivariana.,Caracas,Venezuela,2026-06-26T11:21:40.433Z
+98d7ecc0-e295-40d2-a6d8-ef9b841b81be,Cruz Roja Mexicana - Búsqueda de Familiares (RCF),56 45 85 32 74,Línea de orientación y apoyo para ubicar a familiares en Venezuela tras los sismos.,Ciudad de México,México,2026-06-26T11:20:58.799Z
+050709a1-ae13-464b-b592-4ad223d5161a,Centro de Emergencias Baruta,0412-336-2122,Fuente: @ecosistemag · @tonyfrangiem · @lole.zamudio,Baruta,Venezuela,2026-06-26T01:07:07.396Z
+9be501af-9301-457d-87dd-7e33549c9b58,Centro de Emergencias Baruta,(0212) 943-2401,Fuente: @ecosistemag · @tonyfrangiem · @lole.zamudio,Baruta,Venezuela,2026-06-26T01:07:07.393Z
+99c3053c-9177-47c1-a113-93cb1e03133f,Centro de Emergencias Baruta,(0212) 941-6277,Fuente: @ecosistemag · @tonyfrangiem · @lole.zamudio,Baruta,Venezuela,2026-06-26T01:07:07.387Z
+3d739244-b68f-4c0c-ad22-9c338cc16b21,Brigada de Restablecimiento de Vías y Atención de Emergencias (MTT),(0212) 537-26-77,Paramédicos de la autopista (Ángeles de la Autopista),Caracas,Venezuela,2026-06-25T22:05:08.755Z
+d41652e7-8494-483c-91b8-0687a4a86439,VIVEX (Vigilancia de Vías Expresas),(0212) 471-14-81,Vigilancia en autopistas de Caracas,Caracas,Venezuela,2026-06-25T22:05:08.736Z
+bcbaf2a5-9671-484c-bc5a-83d70b9bcc58,VIVEX (Vigilancia de Vías Expresas),(0212) 471-60-01,Vigilancia en autopistas de Caracas,Caracas,Venezuela,2026-06-25T22:05:08.719Z
+9037eec2-2913-487f-86a9-4dfa9bd89f33,Inspectoría Nacional de Tránsito (INT),167,Tránsito terrestre,Caracas,Venezuela,2026-06-25T22:05:08.713Z
+f0dac00b-3ba4-4786-ac3c-312850c3811a,Socorristas Cruz Roja,(0212) 571-47-13,Cruz Roja Venezolana,Caracas,Venezuela,2026-06-25T22:05:08.693Z
+ee96c679-1946-4b75-a412-0c81498247e1,Organización de Rescate Humboldt,0414-926-21-39,Rescate Humboldt (ORH),Caracas,Venezuela,2026-06-25T22:05:08.628Z
+389dd1ef-de9c-40d9-acbd-c4ed501371b3,Organización de Rescate Humboldt,(0212) 234-22-34,Rescate Humboldt (ORH),Caracas,Venezuela,2026-06-25T22:05:08.605Z
+d230b872-77de-4152-8aac-12c48021ee8e,Grupo de Rescate Venezuela,(0212) 977-47-10,Grupo de rescate voluntario,Caracas,Venezuela,2026-06-25T22:05:08.562Z
+8bc01293-bb5c-40da-be1f-405329e58ced,Grupo de Rescate Caracas (El Ávila),(0212) 415-46-61,Rescate en el cerro El Ávila / Parque Nacional Waraira Repano,Caracas,Venezuela,2026-06-25T22:05:08.546Z
+e5c13716-4023-4cc2-9a78-2ba8facf26ec,Grupo de Rescate Caracas (El Ávila),(0212) 615-63-86,Rescate en el cerro El Ávila / Parque Nacional Waraira Repano,Caracas,Venezuela,2026-06-25T22:05:08.531Z
+109db2de-405e-48db-822b-71dc879603c0,"Cuerpo de Emergencias, Rescate y Transmisiones",(0212) 545-47-47,Rescate y transmisiones,Caracas,Venezuela,2026-06-25T22:05:08.527Z
+2080c557-fea3-496c-a215-2dcac312c9d2,Policía Municipal de El Hatillo,(0212) 961-16-82,PoliHatillo,Caracas,Venezuela,2026-06-25T22:05:08.521Z
+61d236cf-5b09-47e7-88e7-d5bbd199fcc0,Policía Municipal de Sucre,(0212) 242-22-11,PoliSucre,Caracas,Venezuela,2026-06-25T22:05:08.517Z
+c4c0220b-dd2f-4c92-aa1e-df9c2e989342,Policía Municipal de Sucre,(0212) 242-21-11,PoliSucre,Caracas,Venezuela,2026-06-25T22:05:08.512Z
+3e730922-831c-4ce7-a2b2-2c832deec3c3,Policía Municipal de Baruta,(0212) 943-62-77,PoliBaruta,Caracas,Venezuela,2026-06-25T22:05:08.505Z
+089c31bd-9a58-4cff-b5ad-ceafb86631a5,Policía Municipal de Baruta,(0212) 943-28-55,PoliBaruta,Caracas,Venezuela,2026-06-25T22:05:08.497Z
+dfed602a-be5f-4f27-9f3c-fa8087a8c1d3,Policía Municipal de Chacao,(0212) 264-00-50,PoliChacao,Caracas,Venezuela,2026-06-25T22:05:08.488Z
+5ed3b9fa-b325-42ff-a4f4-bcbab3d669a9,Policía Municipal de Chacao,(0212) 264-12-56,PoliChacao,Caracas,Venezuela,2026-06-25T22:05:08.476Z
+e765073a-813f-48a8-8e32-051fed62c114,Policía Metropolitana,(0212) 862-58-72,Policía Metropolitana de Caracas,Caracas,Venezuela,2026-06-25T22:05:08.469Z
+f8ca8fee-4d8e-4b75-a8f5-0ca6051d60ad,Policía Metropolitana,(0212) 862-58-71,Policía Metropolitana de Caracas,Caracas,Venezuela,2026-06-25T22:05:08.462Z
+0550a0f5-1dca-4c53-8d03-166ead03e140,CICPC,(0212) 571-32-66,"Cuerpo de Investigaciones Científicas, Penales y Criminalísticas",Caracas,Venezuela,2026-06-25T22:05:08.455Z
+292010fc-67e2-44c7-841f-ce7a00abad77,CICPC,(0212) 571-38-44,"Cuerpo de Investigaciones Científicas, Penales y Criminalísticas",Caracas,Venezuela,2026-06-25T22:05:08.452Z
+5296bd98-4675-4bbb-aca6-03cab06b3ea1,CICPC,(0212) 571-35-33,"Cuerpo de Investigaciones Científicas, Penales y Criminalísticas",Caracas,Venezuela,2026-06-25T22:05:08.450Z
+d29b049d-77cc-476e-9432-d481ce999eff,Defensa Civil Nacional,(0212) 662-66-19,Defensa Civil Nacional,Caracas,Venezuela,2026-06-25T22:05:08.444Z
+d537b7a9-b8b9-41fd-80cb-5d47a3a9422b,Defensa Civil Nacional,(0212) 662-22-52,Defensa Civil Nacional,Caracas,Venezuela,2026-06-25T22:05:08.434Z
+a780f81b-23fb-4e44-adef-046e93c6d64c,Defensa Civil Nacional,(0212) 483-98-05,Defensa Civil Nacional,Caracas,Venezuela,2026-06-25T22:05:08.432Z
+cd45ab57-0862-4b05-9a62-71f99616149d,Defensa Civil Nacional,0800-24845,Defensa Civil Nacional,Caracas,Venezuela,2026-06-25T22:05:08.426Z
+60ad2fd0-c57d-4e4b-b52d-7c47f204c29b,Defensa Civil Nacional,0800-28326,Defensa Civil Nacional,Caracas,Venezuela,2026-06-25T22:05:08.422Z
+3bbf3a4f-0aa6-4a08-8ca0-b32f3ecd0596,Defensa Civil Alcaldía Mayor,(0212) 662-32-05,Defensa Civil Alcaldía Mayor,Caracas,Venezuela,2026-06-25T22:05:08.416Z
+c1945b32-1799-4d37-a0b7-caf749266876,Defensa Civil Alcaldía Mayor,(0212) 662-67-59,Defensa Civil Alcaldía Mayor,Caracas,Venezuela,2026-06-25T22:05:08.409Z
+938e1fe8-43e4-42ef-b07b-72bf2c0410fb,Instituto de Protección Civil,(0212) 545-93-91,Oficina de Protección Civil,Caracas,Venezuela,2026-06-25T22:05:08.402Z
+f54597f7-4a63-4157-a488-8bc0e873175d,Instituto de Protección Civil,(0212) 662-32-05,Oficina de Protección Civil,Caracas,Venezuela,2026-06-25T22:05:08.383Z
+8754ac9c-4e62-43f5-b324-80fd37581382,Instituto de Protección Civil,(0212) 662-84-76,Oficina de Protección Civil,Caracas,Venezuela,2026-06-25T22:05:08.371Z
+86a16d91-c57b-42a8-9084-1b07f8c15c6d,Instituto de Protección Civil,(0212) 631-90-58,Oficina de Protección Civil,Caracas,Venezuela,2026-06-25T22:05:08.368Z
+6b0830d4-d653-4381-97f7-c9ed5c4ca74c,Instituto de Protección Civil,(0212) 631-86-62,Oficina de Protección Civil,Caracas,Venezuela,2026-06-25T22:05:08.359Z
+790dd458-4c99-4482-9c55-38da570ffd7f,Protección Civil,0800-2624368,Línea nacional de Protección Civil,Caracas,Venezuela,2026-06-25T22:05:08.358Z
+df78a1bf-3ecb-4cf6-a03d-852ed37fc4fc,Protección Civil,0800-2668446,Línea nacional de Protección Civil,Caracas,Venezuela,2026-06-25T22:05:08.356Z
+17492c5a-8279-421f-ba4a-3e8d1b11409f,Protección Civil,0800-5588427,Línea nacional de Protección Civil,Caracas,Venezuela,2026-06-25T22:05:08.355Z
+abc60464-4cb1-430f-9079-bdbde5a62b20,Bomberos San Bernardino,(0212) 577-92-09,Cuerpo de bomberos San Bernardino,Caracas,Venezuela,2026-06-25T22:05:08.351Z
+a693aba3-de87-4290-bec4-fbbd5de1fac1,Bomberos Plaza Venezuela,(0212) 793-64-57,Cuerpo de bomberos Plaza Venezuela,Caracas,Venezuela,2026-06-25T22:05:08.346Z
+6d8d83f1-43c3-4d42-9440-a9c582b1e691,Bomberos Plaza Venezuela,(0212) 793-00-39,Cuerpo de bomberos Plaza Venezuela,Caracas,Venezuela,2026-06-25T22:05:08.324Z
+69d42533-3d27-4a44-aa9a-35283c5c8fb0,Bomberos Miranda,(0212) 235-69-67,Cuerpo de bomberos Estado Miranda,Caracas,Venezuela,2026-06-25T22:05:08.235Z
+ee876dfb-eeeb-45e0-8db5-d5ef0c78e91c,Bomberos Metropolitanos,(0212) 545-45-45,Bomberos Metropolitanos de Caracas,Caracas,Venezuela,2026-06-25T22:05:08.230Z
+d382a773-a734-4202-84db-57cf9845393c,Bomberos La Urbina,(0212) 241-66-41,Cuerpo de bomberos La Urbina,Caracas,Venezuela,2026-06-25T22:05:08.218Z
+7d70ebf6-9914-4b04-9918-c350843c0fbc,Bomberos La Trinidad,(0212) 943-43-61,Cuerpo de bomberos La Trinidad,Caracas,Venezuela,2026-06-25T22:05:08.211Z
+2fa9c098-1e7c-449e-bfb3-2a1f4447562c,Bomberos La Guaira,(0212) 331-04-45,Cuerpo de bomberos La Guaira,Caracas,Venezuela,2026-06-25T22:05:08.200Z
+ec3cdc90-8a4a-44a4-9d41-bfeb6a7497bb,Bomberos La Guaira,(0212) 332-76-20,Cuerpo de bomberos La Guaira,Caracas,Venezuela,2026-06-25T22:05:08.164Z
+dd944ec7-0d8f-41d7-9c0a-a3f593fb34c6,Bomberos El Valle,(0212) 672-06-36,Cuerpo de bomberos El Valle,Caracas,Venezuela,2026-06-25T22:05:08.133Z
+e3d32b68-9292-4eb5-bffd-3f06cb8d8c2c,Bomberos El Valle,(0212) 672-01-75,Cuerpo de bomberos El Valle,Caracas,Venezuela,2026-06-25T22:05:08.111Z
+70f5fa7a-19c5-4410-9c30-119f13287bbc,Bomberos El Paraíso,(0212) 481-09-61,Cuerpo de bomberos El Paraíso,Caracas,Venezuela,2026-06-25T22:05:08.083Z
+87ca13de-ea11-4c64-a698-091e825d5fa1,Bomberos El Cafetal,(0212) 985-29-77,Cuerpo de bomberos El Cafetal,Caracas,Venezuela,2026-06-25T22:05:08.067Z
+a6249f94-d333-4588-b42b-1d19bf0af9ae,Bomberos El Cafetal,(0212) 985-36-40,Cuerpo de bomberos El Cafetal,Caracas,Venezuela,2026-06-25T22:05:08.056Z
+3fb6ae47-ee3c-421a-949c-1794415fb0e1,Bomberos Sucre,(0212) 985-36-40,Cuerpo de bomberos Sucre,Caracas,Venezuela,2026-06-25T22:05:08.029Z
+b09e1e47-3c79-4073-8b72-3f93e72046c4,Bomberos del Este (Cafetal),(0212) 985-50-60,Cuerpo de bomberos Cafetal,Caracas,Venezuela,2026-06-25T22:05:07.987Z
+3b440c75-4107-47e5-bb6e-d4e224b95302,Bomberos del Este (Cafetal),(0212) 987-43-34,Cuerpo de bomberos Cafetal,Caracas,Venezuela,2026-06-25T22:05:07.933Z
+5b5722c5-3576-4b35-aadd-a5ddbf56e68f,Bomberos Chacao,(0212) 265-32-61,Cuerpo de bomberos Chacao,Caracas,Venezuela,2026-06-25T22:05:07.931Z
+3d203c6c-685d-46ea-a102-2ab49f024d5d,Bomberos Catia La Mar,(0212) 351-99-66,Cuerpo de bomberos Catia La Mar,Caracas,Venezuela,2026-06-25T22:05:07.927Z
+68b03e7c-9070-4c12-8471-f00c68d5fdf1,Bomberos Antímano,(0212) 472-20-54,Cuerpo de bomberos Antímano,Caracas,Venezuela,2026-06-25T22:05:07.924Z
+2ab40fb0-9161-41ca-b2fd-c0f85b0eded7,Servicio de Ambulancia Metropolitano,(0212) 577-92-09,Servicio público de ambulancias,Caracas,Venezuela,2026-06-25T22:05:07.911Z
+ed73870b-7bc1-45cb-b832-a80a1870b237,Servicio de Ambulancia Metropolitano,(0212) 545-46-55,Servicio público de ambulancias,Caracas,Venezuela,2026-06-25T22:05:07.890Z
+e0727c2e-5d06-4aa1-b69d-da0fc73c2cf7,Servicio de Ambulancia Metropolitano,(0212) 545-45-45,Servicio público de ambulancias,Caracas,Venezuela,2026-06-25T22:05:07.879Z
+77119ed2-7718-4e6d-a66c-fe3dbdcd0622,Rescarven,(0212) 993-33-67,Emergencias médicas Rescarven,Caracas,Venezuela,2026-06-25T22:05:07.876Z
+514821a9-ac03-488e-9496-55fd27c0387d,Rescarven,(0212) 993-13-10,Emergencias médicas Rescarven,Caracas,Venezuela,2026-06-25T22:05:07.872Z
+113e9c77-7ee3-41c8-9897-6165939599f9,Rescarven,(0212) 993-69-91,Emergencias médicas Rescarven,Caracas,Venezuela,2026-06-25T22:05:07.867Z
+50710fcc-09d0-4952-82bf-9b4bcd68b548,Rescarven,(0212) 993-69-11,Emergencias médicas Rescarven,Caracas,Venezuela,2026-06-25T22:05:07.779Z
+a4d4eae2-4bf3-4277-abe2-d4fb447bb23d,Aeroambulancias,(0212) 991-79-40,Servicio de aeroambulancias,Caracas,Venezuela,2026-06-25T22:05:07.745Z
+469f6564-d76b-4dd5-a261-a9143570864c,Aeroambulancias,(0212) 992-89-90,Servicio de aeroambulancias,Caracas,Venezuela,2026-06-25T22:05:07.697Z
+1febb8f4-bd4d-4243-afbe-d15dbb472c16,Aeroambulancias,(0212) 992-89-80,Servicio de aeroambulancias,Caracas,Venezuela,2026-06-25T22:05:07.655Z
+b422d501-827a-42ca-b5d7-a17c3a97bc22,Aeroambulancias,(0212) 993-25-41,Servicio de aeroambulancias,Caracas,Venezuela,2026-06-25T22:05:07.625Z
+d55b7dd7-dabf-490d-882c-7166add4356d,Emergencias Movistar,911,Número general desde Movistar,Caracas,Venezuela,2026-06-25T22:05:07.617Z
+433f0a8d-2a30-4dd3-a4e9-85d3ee29d278,Emergencias Digitel,112,Número general desde Digitel,Caracas,Venezuela,2026-06-25T22:05:07.614Z
+8657fae2-0ece-4c25-890f-350271358511,Emergencias Movilnet,*1,Número general desde Movilnet,Caracas,Venezuela,2026-06-25T22:05:07.606Z
+a30f137d-5e39-4b14-96a6-9ce2bfe5abaa,Emergencias CANTV,171,Número general desde teléfono fijo CANTV,Caracas,Venezuela,2026-06-25T22:05:07.586Z

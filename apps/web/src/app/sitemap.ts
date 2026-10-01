@@ -46,7 +46,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: 'https://acopiove.org', lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
     { url: 'https://acopiove.org/resumen', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: 'https://acopiove.org/docs', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
-    { url: 'https://acopiove.org/docs/api', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
     { url: 'https://acopiove.org/data', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: 'https://acopiove.org/centros', lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: 'https://acopiove.org/refugios', lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
@@ -66,7 +65,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: 'https://acopiove.org/interpretes/en', lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: 'https://acopiove.org/acerca', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.6 },
     { url: 'https://acopiove.org/docs', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.6 },
-    { url: 'https://acopiove.org/docs/api', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: 'https://acopiove.org/docs/fuentes', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.6 },
     // Landing internacional de donaciones (multiidioma) con alternates hreflang.
     {
