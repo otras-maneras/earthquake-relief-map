@@ -1,0 +1,40 @@
+{
+  "name": "AcopioVE",
+  "short_name": "AcopioVE",
+  "description": "Mapa de centros de acopio para ayuda humanitaria en Venezuela y la diáspora venezolana.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a2244",
+  "lang": "es-VE",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "categories": ["utilities", "social"],
+  "icons": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "label": "AcopioVE — Centros de acopio, teléfonos y refugios para el terremoto de Venezuela"
+    }
+  ]
+}

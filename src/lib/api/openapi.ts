@@ -1,0 +1,320 @@
+// Especificación OpenAPI 3.1 de la API pública v1 (escrita a mano, sin deps).
+// Se sirve en /v1/openapi.json y la renderiza /v1/docs.
+
+import { API_BASE, DATA_ATTRIBUTION, DATA_LICENSE, LICENSE_URL } from './http';
+
+const centroSchema = {
+  type: 'object',
+  properties: {
+    id: { type: 'string', format: 'uuid' },
+    name: { type: 'string' },
+    tipo: { type: 'string', enum: ['acopio', 'refugio'] },
+    estado: { type: 'string', enum: ['abierto', 'lleno', 'cerrado'] },
+    address: { type: 'string', nullable: true },
+    ciudad: { type: 'string', nullable: true },
+    pais: { type: 'string', nullable: true },
+    lat: { type: 'number' },
+    lng: { type: 'number' },
+    recibe: { type: 'array', items: { type: 'string' } },
+    necesita_ahora: { type: 'string', nullable: true },
+    horario: { type: 'string', nullable: true },
+    contacto: { type: 'string', nullable: true },
+    responsable: { type: 'string', nullable: true },
+    fuente: { type: 'string', nullable: true },
+    updated_at: { type: 'string', format: 'date-time', nullable: true },
+  },
+};
+
+const telefonoSchema = {
+  type: 'object',
+  properties: {
+    id: { type: 'string', format: 'uuid' },
+    name: { type: 'string' },
+    number: { type: 'string' },
+    description: { type: 'string', nullable: true },
+    ciudad: { type: 'string', nullable: true },
+    pais: { type: 'string', nullable: true },
+    updated_at: { type: 'string', format: 'date-time', nullable: true },
+  },
+};
+
+/** Lista paginada: meta.* es canónico; total/limit/offset también en la raíz (compat. scrapers). */
+function paginatedListSchema(itemSchema: object) {
+  return {
+    type: 'object',
+    properties: {
+      data: { type: 'array', items: itemSchema },
+      meta: {
+        type: 'object',
+        properties: {
+          count: { type: 'integer', description: 'Registros en esta página' },
+          total: { type: 'integer', description: 'Total que coincide con los filtros' },
+          limit: { type: 'integer' },
+          offset: { type: 'integer' },
+          license: { type: 'string' },
+          license_url: { type: 'string' },
+          attribution: { type: 'string' },
+        },
+      },
+      total: { type: 'integer', description: 'Igual que meta.total (duplicado en raíz)' },
+      limit: { type: 'integer', description: 'Igual que meta.limit (duplicado en raíz)' },
+      offset: { type: 'integer', description: 'Igual que meta.offset (duplicado en raíz)' },
+    },
+  };
+}
+
+export const openapiSpec = {
+  openapi: '3.1.0',
+  info: {
+    title: 'AcopioVE API',
+    version: '1.0.0',
+    description:
+      'API pública y abierta de centros de acopio, refugios y teléfonos de emergencia ' +
+      'para la respuesta al terremoto de Venezuela 2026. Lectura sin autenticación. ' +
+      'Otras plataformas pueden CONTRIBUIR puntos vía POST /submissions (entran como ' +
+      'pendientes y un admin los revisa antes de publicarlos). ' +
+      `Datos bajo ${DATA_LICENSE} — ${DATA_ATTRIBUTION}.`,
+    license: { name: DATA_LICENSE, url: LICENSE_URL },
+    contact: { name: 'AcopioVE', url: 'https://acopiove.org' },
+  },
+  servers: [{ url: API_BASE }],
+  paths: {
+    '/puntos': {
+      get: {
+        summary: 'Directorio de ayuda unificado (acopios, refugios, salud, teléfonos)',
+        description:
+          'Un solo endpoint con todos los puntos de apoyo, pensado para apps y chatbots. ' +
+          'Unifica centros de acopio + refugios + teléfonos de emergencia (AcopioVE) y puntos de ' +
+          'salud/hospitales (CIVIS). NO incluye personas (PII). JSON, GeoJSON o CSV.',
+        parameters: [
+          { name: 'tipo', in: 'query', schema: { type: 'string' }, description: 'CSV: acopio,refugio,salud,telefono' },
+          { name: 'ciudad', in: 'query', schema: { type: 'string' }, description: 'Coincidencia parcial, sin acentos' },
+          { name: 'pais', in: 'query', schema: { type: 'string' } },
+          { name: 'near', in: 'query', schema: { type: 'string' }, description: 'lat,lng — ordena por cercanía (excluye teléfonos sin coords)' },
+          { name: 'radius', in: 'query', schema: { type: 'number' }, description: 'km, junto con near' },
+          { name: 'format', in: 'query', schema: { type: 'string', enum: ['json', 'geojson', 'csv'] } },
+          { name: 'limit', in: 'query', schema: { type: 'integer', default: 200, maximum: 1000 } },
+          { name: 'offset', in: 'query', schema: { type: 'integer', default: 0 } },
+        ],
+        responses: {
+          '200': {
+            description: 'Lista de puntos de apoyo',
+            content: {
+              'application/json': {
+                schema: paginatedListSchema({
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string' },
+                    tipo: { type: 'string', enum: ['acopio', 'refugio', 'salud', 'telefono'] },
+                    nombre: { type: 'string' },
+                    lat: { type: ['number', 'null'] },
+                    lng: { type: ['number', 'null'] },
+                    ciudad: { type: ['string', 'null'] },
+                    pais: { type: ['string', 'null'] },
+                    estado: { type: ['string', 'null'] },
+                    categorias: { type: 'array', items: { type: 'string' } },
+                    telefono: { type: ['string', 'null'] },
+                    descripcion: { type: ['string', 'null'] },
+                    fuente: { type: ['string', 'null'] },
+                    fuente_url: { type: ['string', 'null'] },
+                    actualizado_en: { type: ['string', 'null'] },
+                  },
+                }),
+              },
+              'application/geo+json': { schema: { type: 'object', description: 'GeoJSON FeatureCollection' } },
+              'text/csv': { schema: { type: 'string' } },
+            },
+          },
+        },
+      },
+    },
+    '/personas': {
+      get: {
+        summary: 'Búsqueda de personas reportadas (desaparecidas/localizadas) — reunificación',
+        description:
+          'Búsqueda PII-segura para apps y chatbots: "¿está [nombre] reportado?". Fuentes: SOS Venezuela + ' +
+          'Localizados Venezuela + hub Venezuela Ayuda + ReportaVNZLA (on-demand; incluye ' +
+          'desaparecidosterremotovenezuela.com y venezuelatebusca.com). Requiere `q` (nombre) o `cedula` — es un lookup, no un ' +
+          'volcado del registro. Devuelve nombre, estado, ubicación general, foto y fuente; cédula ENMASCARADA; ' +
+          'sin teléfono ni coordenadas GPS; la ubicación de menores se omite.',
+        parameters: [
+          { name: 'q', in: 'query', schema: { type: 'string' }, description: 'Nombre o parte del nombre (mín. 2 caracteres)' },
+          { name: 'cedula', in: 'query', schema: { type: 'string' }, description: 'Cédula a buscar (mín. 3 dígitos); los resultados la devuelven enmascarada' },
+          { name: 'estado', in: 'query', schema: { type: 'string', enum: ['desaparecido', 'localizado'] } },
+          { name: 'limit', in: 'query', schema: { type: 'integer', default: 25, maximum: 50 } },
+        ],
+        responses: {
+          '200': {
+            description: 'Resultados de la búsqueda',
+            content: {
+              'application/json': {
+                schema: paginatedListSchema({
+                  type: 'object',
+                  properties: {
+                    id: { type: 'string' },
+                    nombre: { type: 'string' },
+                    estado: { type: 'string', enum: ['desaparecido', 'localizado'] },
+                    edad: { type: ['integer', 'null'] },
+                    ubicacion_general: { type: ['string', 'null'] },
+                    foto: { type: ['string', 'null'] },
+                    cedula: { type: ['string', 'null'], description: 'Enmascarada (ej. ***123)' },
+                    fuente: { type: 'string' },
+                    fecha: { type: ['string', 'null'] },
+                  },
+                }),
+              },
+            },
+          },
+          '400': { description: 'Falta término de búsqueda (q o cedula)' },
+        },
+      },
+    },
+    '/centros': {
+      get: {
+        summary: 'Lista de centros de acopio y refugios',
+        parameters: [
+          { name: 'tipo', in: 'query', schema: { type: 'string', enum: ['acopio', 'refugio'] } },
+          { name: 'ciudad', in: 'query', schema: { type: 'string' }, description: 'Coincidencia parcial' },
+          { name: 'estado', in: 'query', schema: { type: 'string', enum: ['abierto', 'lleno', 'cerrado'] } },
+          { name: 'pais', in: 'query', schema: { type: 'string' } },
+          { name: 'recibe', in: 'query', schema: { type: 'string' }, description: 'CSV de categorías; devuelve los que reciben al menos una (ej: agua,alimentos)' },
+          { name: 'near', in: 'query', schema: { type: 'string' }, description: 'lat,lng — ordena por cercanía' },
+          { name: 'radius', in: 'query', schema: { type: 'number' }, description: 'km, junto con near' },
+          { name: 'bbox', in: 'query', schema: { type: 'string' }, description: 'minLng,minLat,maxLng,maxLat (viewport de mapa)' },
+          { name: 'updatedSince', in: 'query', schema: { type: 'string', format: 'date-time' } },
+          { name: 'format', in: 'query', schema: { type: 'string', enum: ['json', 'geojson', 'csv'] } },
+          { name: 'limit', in: 'query', schema: { type: 'integer', default: 100, maximum: 500 } },
+          { name: 'offset', in: 'query', schema: { type: 'integer', default: 0 } },
+        ],
+        responses: {
+          '200': {
+            description: 'Lista de centros',
+            content: {
+              'application/json': {
+                schema: paginatedListSchema(centroSchema),
+              },
+              'application/geo+json': { schema: { type: 'object', description: 'GeoJSON FeatureCollection' } },
+              'text/csv': { schema: { type: 'string' } },
+            },
+          },
+        },
+      },
+    },
+    '/centros/{id}': {
+      get: {
+        summary: 'Un centro por id',
+        parameters: [
+          { name: 'id', in: 'path', required: true, schema: { type: 'string', format: 'uuid' } },
+          { name: 'format', in: 'query', schema: { type: 'string', enum: ['json', 'geojson'] } },
+        ],
+        responses: {
+          '200': { description: 'Centro', content: { 'application/json': { schema: { type: 'object', properties: { data: centroSchema } } } } },
+          '404': { description: 'No encontrado' },
+        },
+      },
+    },
+    '/telefonos': {
+      get: {
+        summary: 'Teléfonos de emergencia',
+        parameters: [
+          { name: 'ciudad', in: 'query', schema: { type: 'string' } },
+          { name: 'pais', in: 'query', schema: { type: 'string' } },
+          { name: 'limit', in: 'query', schema: { type: 'integer', default: 200, maximum: 500 } },
+          { name: 'offset', in: 'query', schema: { type: 'integer', default: 0 } },
+        ],
+        responses: {
+          '200': { description: 'Lista de teléfonos', content: { 'application/json': { schema: paginatedListSchema(telefonoSchema) } } },
+        },
+      },
+    },
+    '/meta': {
+      get: {
+        summary: 'Conteos, última actualización, licencia y atribución',
+        responses: { '200': { description: 'Metadatos del dataset' } },
+      },
+    },
+    '/submissions': {
+      post: {
+        summary: 'Sugerir un punto de apoyo (contribución de terceros)',
+        description:
+          'Cualquiera (incluidas otras plataformas) puede sugerir un centro/refugio. ' +
+          'Entra como PENDIENTE (no se publica) hasta que un admin de AcopioVE lo apruebe. ' +
+          'Abierto, sin llave, con rate-limit por IP (10/10min). Envía tu plataforma en `source` para la atribución. ' +
+          'La respuesta incluye `possible_duplicate` si detectamos un punto cercano y parecido.',
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                allOf: [
+                  centroSchema,
+                  {
+                    type: 'object',
+                    properties: {
+                      source: { type: 'string', description: 'Nombre de tu plataforma (atribución)', example: 'MiApp' },
+                    },
+                  },
+                ],
+              },
+            },
+          },
+        },
+        responses: {
+          '201': {
+            description: 'Sugerencia recibida (pendiente de revisión)',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    data: {
+                      type: 'object',
+                      properties: {
+                        id: { type: 'string', format: 'uuid' },
+                        status: { type: 'string', enum: ['pending'] },
+                        possible_duplicate: { type: 'boolean' },
+                        duplicate_of: { type: ['object', 'null'] },
+                      },
+                    },
+                    meta: { type: 'object' },
+                  },
+                },
+              },
+            },
+          },
+          '400': { description: 'Datos inválidos' },
+          '429': { description: 'Rate limit excedido' },
+        },
+      },
+    },
+    '/submissions/{id}': {
+      get: {
+        summary: 'Estado de una sugerencia',
+        description: 'Devuelve `pending` (en revisión) o `approved` (ya publicada). 404 si no existe o fue rechazada.',
+        parameters: [{ name: 'id', in: 'path', required: true, schema: { type: 'string', format: 'uuid' } }],
+        responses: {
+          '200': {
+            description: 'Estado de la sugerencia',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    data: {
+                      type: 'object',
+                      properties: {
+                        id: { type: 'string', format: 'uuid' },
+                        status: { type: 'string', enum: ['pending', 'approved'] },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+          '404': { description: 'No encontrada (o rechazada)' },
+        },
+      },
+    },
+  },
+} as const;

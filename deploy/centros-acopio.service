@@ -1,0 +1,19 @@
+[Unit]
+Description=Centros de Acopio (Next.js)
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=acopiove  # ajusta al usuario de tu servidor
+Group=acopiove
+WorkingDirectory=/opt/centros-acopio
+Environment=NODE_ENV=production
+Environment=HOSTNAME=127.0.0.1
+ExecStart=/usr/bin/npm run start
+Restart=always
+RestartSec=5
+StandardOutput=append:/opt/centros-acopio/logs/web.log
+StandardError=append:/opt/centros-acopio/logs/web.log
+
+[Install]
+WantedBy=multi-user.target

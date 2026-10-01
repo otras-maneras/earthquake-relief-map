@@ -1,0 +1,15 @@
+# Datos abiertos / Open data — snapshot 2026-10-01
+
+Instantánea final de los datos que servía `api.acopiove.org/v1`.
+
+| Archivo | Contenido |
+|---|---|
+| `centros.json` / `.csv` / `.geojson` | 716 centros de acopio (664) y refugios (52), 24 países |
+| `telefonos.json` / `.csv` | 78 líneas y brigadas de emergencia |
+
+- **Licencia de los datos: CC-BY-4.0.** Atribución: "Datos: AcopioVE (acopiove.org)".
+- Última actualización de los registros: 2026-07-30. **Pueden estar desactualizados**:
+  el proyecto se cerró y nadie los verifica. Confirma por otra vía antes de depender de ellos.
+- Se omitió el campo `responsable` (nombres de personas) respecto a lo que servía la API.
+- Los datos de personas desaparecidas **nunca se almacenaron**: se consultaban en vivo a
+  las organizaciones de origen. No hay snapshot de ellos.

@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ap-bg: #eaecee;
+  --ap-surface: #ffffff;
+  --ap-surface-hover: #f4f5f7;
+  --ap-primary: #1e2126;
+  --ap-secondary: #4d5158;
+  --ap-muted: #646970;
+  --ap-border: rgba(0, 0, 0, 0.08);
+  --ap-success: #059669;
+  --ap-red: #ef4444;
+  --ap-amber: #d97706;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--ap-bg);
+  color: var(--ap-primary);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Leaflet popup un poco más prolijo */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+}
+
+/* Color de los clusters de centros por frescura (verificado / actualizado / desactualizado),
+   no por cantidad de puntos. La forma (anillo + círculo) la da .marker-cluster del
+   plugin; acá solo pisamos el color. */
+.centro-cluster-verde {
+  background-color: rgba(22, 163, 74, 0.35);
+}
+.centro-cluster-verde div {
+  background-color: rgba(22, 163, 74, 0.75);
+}
+.centro-cluster-amarillo {
+  background-color: rgba(217, 119, 6, 0.35);
+}
+.centro-cluster-amarillo div {
+  background-color: rgba(217, 119, 6, 0.75);
+}
+.centro-cluster-rojo {
+  background-color: rgba(220, 38, 38, 0.35);
+}
+.centro-cluster-rojo div {
+  background-color: rgba(220, 38, 38, 0.8);
+}
+.centro-cluster-verde div span,
+.centro-cluster-amarillo div span,
+.centro-cluster-rojo div span {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Animación para el pulso de los epicentros */
+@keyframes epicenter-pulse {
+  0% {
+    transform: scale(0.3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.epicenter-pulse-ring {
+  border: 3px solid #ef4444;
+  border-radius: 50%;
+  animation: epicenter-pulse 1.4s infinite cubic-bezier(0.215, 0.610, 0.355, 1); /* Pulso más rápido para sismo principal */
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 30px;
+  height: 30px;
+}
+
+.epicenter-pulse-ring-precursor {
+  border-color: #d97706;
+  animation-duration: 2.8s; /* Pulso más lento para precursor */
+}
+
+/* Anillo sutil para llamar la atención sobre el botón de búsqueda de personas */
+@keyframes attention-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.attention-pulse-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  border: 2px solid var(--ap-primary);
+  animation: attention-pulse 2.6s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+  pointer-events: none;
+}
+
+.epicenter-dot {
+  width: 14px;
+  height: 14px;
+  background-color: #ef4444;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.7);
+  position: relative;
+  z-index: 10;
+}
+
+.epicenter-dot-precursor {
+  background-color: #d97706;
+  box-shadow: 0 0 8px rgba(217, 119, 6, 0.7);
+}
+
+/* Personalización de botones de zoom (+/-) de Leaflet */
+.leaflet-control-zoom.leaflet-bar {
+  border: none !important;
+  box-shadow: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  background-color: var(--ap-surface) !important;
+  border: 1px solid var(--ap-border) !important;
+  border-radius: 50% !important; /* Totalmente circulares */
+  color: var(--ap-primary) !important;
+  width: 40px !important; /* Dimensión táctil premium */
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Estado al pasar el cursor (Hover) */
+.leaflet-control-zoom-in:hover,
+.leaflet-control-zoom-out:hover {
+  background-color: var(--ap-surface-hover) !important;
+  color: var(--ap-primary) !important;
+  transform: scale(1.05);
+}
+
+/* Estado al presionar (Active) */
+.leaflet-control-zoom-in:active,
+.leaflet-control-zoom-out:active {
+  transform: scale(0.95);
+}
+
+/* Estado deshabilitado (ej: zoom máximo alcanzado) */
+.leaflet-disabled {
+  background-color: var(--ap-surface-hover) !important;
+  color: var(--ap-muted) !important;
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* Animación para el Toast de Compartir */
+@keyframes toast-in-out {
+  0% {
+    transform: translate(-50%, -20px);
+    opacity: 0;
+  }
+  12% {
+    transform: translate(-50%, 16px);
+    opacity: 1;
+  }
+  88% {
+    transform: translate(-50%, 16px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -20px);
+    opacity: 0;
+  }
+}
+
+.animate-toast {
+  animation: toast-in-out 3s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
