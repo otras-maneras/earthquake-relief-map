@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>AcopioVE — Presentación del Proyecto & Impacto Humanitario</title>
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDESFJVEKY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JDESFJVEKY', { page_path: window.location.pathname });
+</script>
+<style>
+  :root{
+    --canvas-top: #f8fafc;
+    --canvas-bot: #edf2f7;
+    --panel: #ffffff;
+    --panel-hi: #ffffff;
+    --panel-2: #f8fafc;
+    --inset: #f1f5f9;
+
+    --ink: #0f172a;
+    --ink-2: #334155;
+    --ink-3: #64748b;
+    --ink-4: #94a3b8;
+
+    --hairline: rgba(15, 23, 42, 0.08);
+    --hairline-soft: rgba(15, 23, 42, 0.04);
+    --bevel-hi: rgba(255,255,255,0.9);
+    --emboss-hi: 0 1px 0 rgba(255,255,255,0.8);
+
+    /* Acento grafito y pizarra */
+    --accent-top: #475569;
+    --accent-bot: #334155;
+    --accent-line: #1e293b;
+    --accent-ink: #ffffff;
+
+    /* Acento primario humanitario / señal */
+    --chart-top: #2563eb;
+    --chart-bot: #1d4ed8;
+
+    /* Verde de confirmación */
+    --brand-top: #059669;
+    --brand-bot: #047857;
+    --brand-line: #065f46;
+
+    --r-sm: 6px;
+    --r: 10px;
+    --r-lg: 14px;
+
+    --shadow-panel: inset 0 1px 0 var(--bevel-hi), 0 1px 3px rgba(15, 23, 42, 0.04), 0 6px 16px rgba(15, 23, 42, 0.02);
+    --shadow-raise: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 2px rgba(15, 23, 42, 0.06);
+    --shadow-inset: inset 0 1px 2px rgba(15, 23, 42, 0.05);
+
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-left: env(safe-area-inset-left, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html,body{
+    height:100%;
+    background: var(--canvas-bot);
+    color:var(--ink);
+    font-family:'DM Sans', system-ui, sans-serif;
+    overflow:hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background-image:
+      radial-gradient(circle, var(--hairline-soft) 1px, transparent 1px),
+      radial-gradient(circle at 85% 10%, rgba(37,99,235,0.06), transparent 45%),
+      radial-gradient(circle at 10% 90%, rgba(5,150,105,0.06), transparent 40%),
+      linear-gradient(180deg, var(--canvas-top), var(--canvas-bot));
+    background-size: 24px 24px, 100% 100%, 100% 100%, 100% 100%;
+    background-attachment: fixed;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .deck{
+    position:relative;
+    height:100vh;
+    height:100dvh;
+    width:100vw;
+    z-index:1;
+  }
+
+  .slide{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding: calc(7vh + var(--safe-top)) calc(9vw + var(--safe-right)) calc(9vh + var(--safe-bottom)) calc(9vw + var(--safe-left));
+    opacity:0;
+    transform: translateY(16px);
+    pointer-events:none;
+    transition: opacity .5s cubic-bezier(.4,0,.2,1), transform .5s cubic-bezier(.4,0,.2,1);
+    overflow:hidden;
+  }
+  .slide.active{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .slide.prev{ transform: translateY(-16px); }
+
+  .slide .reveal{
+    opacity:0;
+    transform: translateY(10px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .slide.active .reveal{ opacity:1; transform: translateY(0); }
+  .slide.active .reveal:nth-child(1){ transition-delay: .05s; }
+  .slide.active .reveal:nth-child(2){ transition-delay: .12s; }
+  .slide.active .reveal:nth-child(3){ transition-delay: .19s; }
+  .slide.active .reveal:nth-child(4){ transition-delay: .26s; }
+  .slide.active .reveal:nth-child(5){ transition-delay: .33s; }
+
+  .eyebrow{
+    font-family:'Outfit', sans-serif;
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-3);
+    font-weight:700;
+    margin-bottom:1.1rem;
+    display:flex;
+    align-items:center;
+    gap:0.55rem;
+    text-shadow: var(--emboss-hi);
+  }
+  .eyebrow::before{ content:''; width:16px; height:2.5px; background:var(--chart-top); border-radius:1px; }
+
+  h1{
+    font-family:'Outfit', sans-serif;
+    font-weight:800;
+    font-size: clamp(2.2rem, 4.8vw, 3.6rem);
+    line-height:1.1;
+    letter-spacing:-0.025em;
+    max-width: 18ch;
+    color:var(--ink);
+    text-shadow: var(--emboss-hi);
+  }
+
+  h2{
+    font-family:'Outfit', sans-serif;
+    font-weight:800;
+    font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+    line-height:1.18;
+    letter-spacing:-0.02em;
+    margin-bottom:1.3rem;
+    max-width: 24ch;
+    color:var(--ink);
+    text-shadow: var(--emboss-hi);
+  }
+
+  h3{
+    font-family:'Outfit', sans-serif;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+
+  .sub{
+    font-size:1.02rem;
+    color:var(--ink-2);
+    margin-top:0.9rem;
+    max-width:56ch;
+    line-height:1.6;
+  }
+  .sub a{
+    color:var(--chart-top);
+    text-underline-offset: 2px;
+    font-weight:600;
+  }
+  .sub a:hover{ color: var(--ink); }
+
+  ul.list{ list-style:none; max-width:58ch; }
+  ul.list li{
+    position:relative;
+    padding-left:1.6rem;
+    margin-bottom:1.1rem;
+    font-size:1rem;
+    line-height:1.55;
+    color:var(--ink);
+  }
+  ul.list li strong{ color:var(--ink); font-weight:600; }
+  ul.list li::before{
+    content:'';
+    position:absolute; left:0; top:0.55em;
+    width:7px; height:7px; border-radius:50%;
+    background: linear-gradient(180deg, var(--chart-top), var(--chart-bot));
+    box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+    transition: transform .25s ease;
+  }
+  ul.list li:hover::before{ transform: scale(1.4); }
+
+  /* Grilla 2x2 para soluciones y módulos */
+  .grid-2x2{ display:grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; max-width:840px; margin-top:0.4rem; }
+  .grid-card{
+    display:flex; gap:0.95rem; align-items:flex-start;
+    border:1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    background: linear-gradient(180deg, var(--panel-hi), var(--panel));
+    box-shadow: var(--shadow-panel);
+    padding: 1.15rem 1.25rem;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .grid-card:hover{
+    transform: translateY(-2px);
+    border-color: rgba(37,99,235,0.25);
+    box-shadow: var(--shadow-panel), 0 10px 24px rgba(15,23,42,0.06);
+  }
+  .grid-card .icon-box{
+    flex:none; width:36px; height:36px; border-radius: var(--r);
+    display:flex; align-items:center; justify-content:center;
+    background: linear-gradient(180deg, var(--panel-2), var(--inset));
+    border:1px solid var(--hairline);
+    box-shadow: var(--shadow-inset);
+  }
+  .grid-card .icon-box svg{ width:18px; height:18px; stroke:var(--chart-top); fill:none; stroke-width:1.8; }
+  .grid-card .card-content{ flex:1; min-width:0; }
+  .grid-card h3{ font-size:0.95rem; font-weight:700; color:var(--ink); margin-bottom:0.3rem; }
+  .grid-card p{ font-size:0.86rem; line-height:1.48; color:var(--ink-2); }
+
+  /* KPIs estilo panel */
+  .kpi-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.1rem;
+    max-width:860px;
+    margin-top:0.5rem;
+  }
+  .kpi-box{
+    border:1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    background: linear-gradient(180deg, var(--panel-hi), var(--panel));
+    box-shadow: var(--shadow-panel);
+    padding: 1.3rem 1.3rem 1.4rem;
+    transition: transform .25s ease, border-color .25s ease;
+  }
+  .kpi-box:hover{ transform: translateY(-3px); border-color: rgba(37,99,235,0.3); }
+  .kpi-num{
+    font-family:'Outfit', sans-serif;
+    font-weight:800;
+    font-size:2.5rem;
+    color:var(--chart-top);
+    line-height:1;
+    margin-bottom:0.4rem;
+    letter-spacing:-0.03em;
+  }
+  .kpi-label{ font-family:'Outfit', sans-serif; font-size:0.95rem; font-weight:700; color:var(--ink); margin-bottom:0.35rem; }
+  .kpi-box p{ font-size:0.84rem; color:var(--ink-3); line-height:1.45; }
+
+  .kpi-foot{
+    margin-top:1.4rem;
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+    font-size:0.9rem;
+    color:var(--ink-3);
+  }
+
+  /* Tabla comparativa de integración */
+  .integ-table{
+    width:100%;
+    max-width:780px;
+    border-collapse:separate;
+    border-spacing:0;
+    margin-top:0.6rem;
+    border:1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    background: var(--panel);
+    box-shadow: var(--shadow-panel);
+    overflow:hidden;
+  }
+  .integ-table th{
+    font-family:'Outfit', sans-serif;
+    text-align:left;
+    padding: 0.85rem 1.1rem;
+    background: var(--panel-2);
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-3);
+    border-bottom:1px solid var(--hairline);
+  }
+  .integ-table td{
+    padding: 0.85rem 1.1rem;
+    border-bottom:1px solid var(--hairline-soft);
+    font-size:0.88rem;
+    line-height:1.4;
+    color:var(--ink-2);
+  }
+  .integ-table tr:last-child td{ border-bottom:none; }
+  .integ-table td strong{ color:var(--ink); font-weight:600; }
+  .badge-pill{
+    display:inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-family:'Outfit', sans-serif;
+    background: var(--inset);
+    color: var(--ink-2);
+    border: 1px solid var(--hairline);
+  }
+
+  .cta-btn{
+    display:inline-flex; align-items:center; gap:0.6rem;
+    margin-top:1.8rem; padding: 0.85rem 1.8rem;
+    background: linear-gradient(180deg, var(--chart-top), var(--chart-bot));
+    color: #ffffff;
+    border: 1px solid var(--accent-line);
+    text-decoration:none; border-radius: var(--r);
+    font-family:'Outfit', sans-serif;
+    font-size:0.95rem; font-weight:700; letter-spacing:0.02em; width:fit-content;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 4px 14px rgba(37,99,235,0.3);
+    transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  }
+  .cta-btn:hover{ transform: translateY(-2px); filter:brightness(1.06); box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 8px 24px rgba(37,99,235,0.38); }
+  .cta-btn .arrow-ico{ transition: transform .25s ease; }
+  .cta-btn:hover .arrow-ico{ transform: translateX(4px); }
+
+  /* Navegación y UI */
+  .nav-dots{
+    position:fixed;
+    bottom: calc(4vh + var(--safe-bottom));
+    left:50%;
+    transform:translateX(-50%);
+    display:flex; gap:0.45rem; z-index:20;
+    padding: 0.45rem 0.75rem;
+    background: linear-gradient(180deg, var(--panel-hi), var(--panel-2));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 999px;
+    border: 1px solid var(--hairline);
+    box-shadow: var(--shadow-panel);
+  }
+  .nav-dot-wrap{ position:relative; display:flex; align-items:center; }
+  .nav-dots button{
+    width:7px; height:7px; border-radius:50%; border:none;
+    background:var(--ink-4); cursor:pointer; padding:0;
+    transition: background .3s ease, width .3s ease, transform .2s ease;
+  }
+  .nav-dots button:hover{ transform: scale(1.3); }
+  .nav-dots button.active{ background: linear-gradient(180deg, var(--chart-top), var(--chart-bot)); width:20px; border-radius:4px; }
+
+  .dot-tip{
+    position:absolute;
+    bottom: 22px;
+    left:50%;
+    transform: translateX(-50%) translateY(4px);
+    background: var(--ink);
+    color: var(--canvas-top);
+    font-family:'Outfit', sans-serif;
+    font-size:0.72rem;
+    font-weight:600;
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--r-sm);
+    white-space:nowrap;
+    opacity:0;
+    pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .nav-dot-wrap:hover .dot-tip{ opacity:1; transform: translateX(-50%) translateY(0); }
+
+  .click-zone{
+    position:fixed; top:0; height:100%; width:16%;
+    z-index:8; cursor:pointer;
+    background:transparent;
+    border:none;
+  }
+  .click-zone.left{ left:0; }
+  .click-zone.right{ right:0; }
+
+  .arrow{
+    position:fixed; top:50%; transform:translateY(-50%);
+    width:38px; height:38px; border-radius:50%;
+    background: linear-gradient(180deg, var(--panel-hi), var(--panel-2));
+    border:1px solid var(--hairline);
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    z-index:9; color: var(--ink-2);
+    opacity:0.6;
+    box-shadow: var(--shadow-raise);
+    transition: opacity .3s ease, transform .25s ease, border-color .25s ease, color .25s ease;
+    font-size:1rem;
+    font-family:'Outfit', sans-serif;
+  }
+  .deck:hover .arrow{ opacity:0.9; }
+  .arrow:hover{ opacity:1 !important; border-color:var(--chart-top); color:var(--ink); }
+  .arrow.left{ left:calc(2.4vw + var(--safe-left)); }
+  .arrow.right{ right:calc(2.4vw + var(--safe-right)); }
+  .arrow.left:hover{ transform: translateY(-50%) translateX(-3px); }
+  .arrow.right:hover{ transform: translateY(-50%) translateX(3px); }
+  .arrow[disabled]{ opacity:0 !important; pointer-events:none; }
+
+  .counter{
+    position:fixed;
+    top: calc(4.5vh + var(--safe-top));
+    right: calc(6vw + var(--safe-right));
+    font-family:'Outfit', sans-serif;
+    font-size:0.85rem; color:var(--ink-3); letter-spacing:0.05em; z-index:10; font-weight:600;
+  }
+  .counter strong{ color:var(--ink); font-weight:800; }
+
+  .brandmark{
+    position:fixed;
+    top: calc(4.5vh + var(--safe-top));
+    left: calc(6vw + var(--safe-left));
+    font-family:'Outfit', sans-serif;
+    font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--ink-3); z-index:10; font-weight:800;
+    display:flex; align-items:center; gap:0.55rem;
+  }
+  .brandmark::before{ content:''; width:8px; height:8px; border-radius:2px; background: linear-gradient(180deg, var(--chart-top), var(--chart-bot)); }
+
+  .progress-bar-track{
+    position:fixed; top:0; left:0; width:100%; height:3px;
+    z-index:11; cursor:pointer;
+    background: var(--hairline);
+  }
+  .progress-bar{
+    height:100%; background: linear-gradient(90deg, var(--chart-top), var(--brand-top));
+    transition: width .4s cubic-bezier(.4,0,.2,1);
+  }
+
+  .hint{
+    position:fixed;
+    bottom: calc(9vh + var(--safe-bottom));
+    left:50%; transform:translateX(-50%);
+    font-family:'Outfit', sans-serif;
+    font-size:0.8rem; color:var(--ink-3);
+    z-index:10; opacity:0;
+    transition: opacity 1s ease;
+    display:flex; gap:0.4rem; align-items:center;
+    font-weight:600;
+  }
+  .hint.show{ opacity:0.9; }
+
+  @media (max-width: 768px){
+    .slide{ padding: calc(6vh + var(--safe-top)) 6.5vw calc(7vh + var(--safe-bottom)); justify-content: center; overflow-y: auto; }
+    h1{ font-size: clamp(1.8rem, 7.5vw, 2.5rem); max-width:none; }
+    h2{ font-size: clamp(1.4rem, 6vw, 1.9rem); margin-bottom:1rem; max-width:none; }
+    .grid-2x2{ grid-template-columns: 1fr; gap:0.6rem; }
+    .kpi-grid{ grid-template-columns: 1fr; gap:0.6rem; }
+    .integ-table th, .integ-table td{ padding: 0.6rem 0.8rem; font-size:0.8rem; }
+    .nav-dots{ bottom: calc(2vh + var(--safe-bottom)); }
+    .arrow{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar-track" id="progressTrack"><div class="progress-bar" id="progressBar"></div></div>
+<div class="brandmark">AcopioVE · HelpMaps.net</div>
+<div class="counter"><strong id="curNum">01</strong> / 16</div>
+
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1: PORTADA -->
+  <section class="slide active" data-index="0">
+    <div class="eyebrow reveal">Respuesta Humanitaria y Datos Abiertos</div>
+    <h1 class="reveal">AcopioVE: Tecnología y Datos para Salvar Vidas</h1>
+    <p class="sub reveal">Una plataforma abierta y colaborativa para centralizar centros de acopio, refugios, búsqueda de personas y evaluación de daños ante emergencias. Hoy parte del ecosistema global <strong><a href="https://helpmaps.net" target="_blank" rel="noopener">HelpMaps.net</a></strong>.</p>
+    <div class="sub reveal" style="margin-top:2rem; font-size:0.88rem; color:var(--ink-3);">
+      Resumen del Proyecto · <strong>2026</strong>
+    </div>
+  </section>
+
+  <!-- SLIDE 2: EL PROBLEMA -->
+  <section class="slide" data-index="1">
+    <div class="eyebrow reveal">Contexto y Diagnóstico</div>
+    <h2 class="reveal">El desafío durante la catástrofe</h2>
+    <p class="sub reveal" style="margin-top:-0.5rem; margin-bottom:1.4rem;">Tras el terremoto, la solidaridad ciudadana fue inmediata pero la información estaba fragmentada y desorganizada:</p>
+    <ul class="list reveal">
+      <li><strong>Caos e información dispersa:</strong> Decenas de listas en PDFs, imágenes en redes y cadenas de WhatsApp desactualizadas en cuestión de horas.</li>
+      <li><strong>Asimetría y saturación:</strong> Centros de acopio colapsados por exceso de donaciones mientras otros refugios cercanos carecían de insumos básicos.</li>
+      <li><strong>Desesperación y duplicidad:</strong> Familias buscando a personas desaparecidas en múltiples formularios aislados sin comunicación entre sí.</li>
+    </ul>
+  </section>
+
+  <!-- SLIDE 3: EL NÚCLEO: CENTROS DE ACOPIO -->
+  <section class="slide" data-index="2">
+    <div class="eyebrow reveal">Núcleo Operativo</div>
+    <h2 class="reveal">La red unificada de centros de acopio</h2>
+    <div class="grid-2x2 reveal">
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="card-content">
+          <h3>Mapeo y Geolocalización Precisa</h3>
+          <p>664 centros georreferenciados con dirección exacta, ciudad y puntos de referencia en Venezuela y el exterior para llegar sin perderse.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="8" y="2" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div>
+        <div class="card-content">
+          <h3>Clasificación por Tipo de Insumo</h3>
+          <p>Filtros claros por lo que recibe cada centro (alimentos, agua, insumos médicos, ropa, fórmulas infantiles) para orientar la donación.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div class="card-content">
+          <h3>Contactos Directos y Horarios</h3>
+          <p>Teléfonos de coordinadores en terreno, horarios de apertura y vías de comunicación para coordinar entregas sin intermediarios.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="card-content">
+          <h3>Transparencia y Trazabilidad</h3>
+          <p>Identificación de la organización a cargo (iniciativas vecinales, ONG, iglesias, gremios) y enlace a la fuente pública que respalda cada punto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 4: QUÉ HICIMOS: PLATAFORMA INTEGRAL -->
+  <section class="slide" data-index="3">
+    <div class="eyebrow reveal">Solución Integral</div>
+    <h2 class="reveal">Cómo ayudamos: Plataforma en vivo</h2>
+    <div class="grid-2x2 reveal">
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 21s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 7.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="card-content">
+          <h3>Mapa 2D con Semáforo de Frescura</h3>
+          <p>Visualización de acopios y refugios con color según verificación comunitaria reciente (verde/ámbar/rojo) para evitar viajes en vano.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></div>
+        <div class="card-content">
+          <h3>Buscador Consolidado de Personas</h3>
+          <p>Unificación de reportes de desaparecidos, hospitalizados y localizados cruzando más de 14 fuentes comunitarias en memoria.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+        <div class="card-content">
+          <h3>Mapa 3D de Daños Estructurales</h3>
+          <p>Evaluación satelital edificio a edificio con extrusión según porcentaje de daño para soporte a rescatistas (Microsoft AI / OCHA).</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div class="card-content">
+          <h3>Directorio de Emergencia y Filtros</h3>
+          <p>78 líneas directas de auxilio y filtros por insumos críticos requeridos (alimentos, fórmulas, gasas, medicinas, herramientas).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 5: INGESTA MULTI-FUENTE Y API PÚBLICA -->
+  <section class="slide" data-index="4">
+    <div class="eyebrow reveal">Arquitectura de Datos</div>
+    <h2 class="reveal">Ingesta multi-fuente y API pública</h2>
+    <div class="grid-2x2 reveal">
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+        <div class="card-content">
+          <h3>Ingesta Federada de Datos</h3>
+          <p>Recepción continua de hojas colaborativas, formularios ciudadanos, reportes de campo y sensores sísmicos del USGS ShakeMap.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <div class="card-content">
+          <h3>Endpoints Abiertos REST / GeoJSON</h3>
+          <p>APIs públicas sin necesidad de autenticación previa (<code>/v1/meta</code>, <code>/v1/centros</code>, <code>/v1/refugios</code>) para consumo por terceros.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="card-content">
+          <h3>CORS Abierto para Desarrolladores</h3>
+          <p>Permite a organizaciones y ONGs integrar capas de datos geoespaciales directamente en sus propias aplicaciones de rescate.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div class="card-content">
+          <h3>Pipeline de Normalización</h3>
+          <p>Limpieza automática de coordenadas, nombres de ciudades y teléfonos para garantizar consistencia en todo el país y la diáspora.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 6: VERIFICACIÓN CRUZADA DE CENTROS -->
+  <section class="slide" data-index="5">
+    <div class="eyebrow reveal">Calidad y Veracidad</div>
+    <h2 class="reveal">Verificación cruzada y validación en terreno</h2>
+    <div class="grid-2x2 reveal">
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <div class="card-content">
+          <h3>Triangulación de Fuentes Múltiples</h3>
+          <p>Ningún centro se publica como verificado sin cruce previo entre registros ciudadanos, llamadas de campo o confirmación local.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg></div>
+        <div class="card-content">
+          <h3>Semáforo de Frescura Temporal</h3>
+          <p>Algoritmo que degrada visualmente los puntos tras horas sin reporte reciente, alertando a la comunidad para re-verificar.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="card-content">
+          <h3>Cola de Moderación Humana</h3>
+          <p>Panel administrativo interno con flujo de aprobación ágil para descartar duplicados y corregir números de contacto errados.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="card-content">
+          <h3>Feedback Comunitario In Situ</h3>
+          <p>Botón directo en cada ficha para que donantes y voluntarios reporten saturación de insumos o cierre temporal de centros.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 7: TRÁFICO REAL Y RESPUESTA EN PICOS (ANALÍTICA) -->
+  <section class="slide" data-index="6">
+    <div class="eyebrow reveal">Métricas de Impacto Real</div>
+    <h2 class="reveal">Tráfico y respuesta en el pico de emergencia</h2>
+    <div class="kpi-grid reveal" style="margin-bottom:1.1rem;">
+      <div class="kpi-box">
+        <div class="kpi-num">5,694</div>
+        <div class="kpi-label">Visualizaciones Registradas</div>
+        <p>Consultas y eventos totales registrados en la plataforma durante la fase de auxilio.</p>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-num">2,620</div>
+        <div class="kpi-label">Visitantes Únicos</div>
+        <p>Sesiones individuales de ciudadanos, donantes y brigadas de rescate.</p>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-num">46.3%</div>
+        <div class="kpi-label">Concentración en 96h</div>
+        <p>2,638 consultas críticas en los primeros 4 días del sismo (26 al 29 de junio).</p>
+      </div>
+    </div>
+    <div class="grid-2x2 reveal">
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 21s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 7.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="card-content">
+          <h3>3,400 Consultas al Mapa Principal (59.7%)</h3>
+          <p>El mapa 2D de centros y refugios fue la herramienta de geolocalización más demandada.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <div class="card-content">
+          <h3>429 Búsquedas de Personas Desaparecidas</h3>
+          <p>Uso continuo del motor <code>/busquedas</code> para cotejar familiares y heridos en hospitales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 8: DISTRIBUCIÓN GEOGRÁFICA (ANALÍTICA) -->
+  <section class="slide" data-index="7">
+    <div class="eyebrow reveal">Cobertura Territorial</div>
+    <h2 class="reveal">Alcance geográfico: Venezuela y diáspora</h2>
+    <div class="grid-2x2 reveal">
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+        <div class="card-content">
+          <h3>Venezuela en Terreno: 1,586 Visitas (27.9%)</h3>
+          <p>Caracas lideró con 625 consultas directas, seguida por Valencia (75), Maracaibo (71) y el litoral central.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+        <div class="card-content">
+          <h3>América Latina: Argentina y Colombia (35.7%)</h3>
+          <p>Argentina (1,569) y Colombia (460 en Bogotá y Medellín) como principales nodos de logística exterior.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M22 2 11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+        <div class="card-content">
+          <h3>Estados Unidos: 894 Visitas (15.7%)</h3>
+          <p>Gran afluencia desde Miami (122) y comunidades organizadas canalizando insumos médicos y quirúrgicos.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="12 6 12 12 16 14"/></svg></div>
+        <div class="card-content">
+          <h3>Europa: España y Conexión Global (5.2%)</h3>
+          <p>España (227 en Madrid/Barcelona), Alemania, Suiza e Irlanda organizando centros de apoyo solidario.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 9: DISPOSITIVOS Y RENDIMIENTO (ANALÍTICA) -->
+  <section class="slide" data-index="8">
+    <div class="eyebrow reveal">Accesibilidad y Entorno</div>
+    <h2 class="reveal">Canales de acceso y comportamiento</h2>
+    <div class="grid-2x2 reveal">
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2"/><line x1="12" x2="12.01" y1="18" y2="18"/></svg></div>
+        <div class="card-content">
+          <h3>44% Tráfico Móvil en Condiciones Extremas</h3>
+          <p>2,474 consultas desde teléfonos Android (1,662) e iOS (827), optimizado para bajo consumo de megas en redes 3G.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></div>
+        <div class="card-content">
+          <h3>56% Desktop para Visualización y Mapas</h3>
+          <p>Uso enfocado en navegación geoespacial, consulta de rutas e inspección de puntos de ayuda en pantalla completa.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <div class="card-content">
+          <h3>609 Entradas por Búsqueda Orgánica</h3>
+          <p>Indexación instantánea en Bing (299), Google (207) y DuckDuckGo sin requerir inversión publicitaria.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+        <div class="card-content">
+          <h3>Difusión Orgánica en Redes y Wikipedia</h3>
+          <p>Tráfico impulsado por Instagram (293), X/Twitter (51), Facebook y citado en Wikipedia en español.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 10: LA DIÁSPORA Y ALCANCE INTERNACIONAL -->
+  <section class="slide" data-index="9">
+    <div class="eyebrow reveal">Impacto Global</div>
+    <h2 class="reveal">El rol de la diáspora y la logística exterior</h2>
+    <p class="sub reveal" style="margin-top:-0.5rem; margin-bottom:1.4rem;">La emergencia movilizó a comunidades en el extranjero. AcopioVE funcionó como puente logístico:</p>
+    <ul class="list reveal">
+      <li><strong>Coordinación en 24 países:</strong> Puntos de acopio mapeados en EE. UU., España, Colombia, Chile, México, Argentina, Panamá, entre otros.</li>
+      <li><strong>Canalización de ayuda médica e insumos:</strong> Filtros por categoría requerida (<em>agua, alimentos, material quirúrgico, ropa</em>) para orientar los envíos internacionales.</li>
+      <li><strong>Visibilidad para iniciativas migrantes:</strong> Registro y geolocalización de centros organizados por comunidades en el exterior para unificar la ayuda.</li>
+    </ul>
+  </section>
+
+  <!-- SLIDE 11: INFORMACIÓN Y SÍNTESIS DE PRENSA -->
+  <section class="slide" data-index="10">
+    <div class="eyebrow reveal">Monitoreo Informativo</div>
+    <h2 class="reveal">Monitor de prensa y síntesis editorial con IA</h2>
+    <div class="grid-2x2 reveal">
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg></div>
+        <div class="card-content">
+          <h3>13 Medios de Prensa Verificados</h3>
+          <p>Feeds RSS automáticos de <em>BBC Mundo, DW, Efecto Cocuyo, El Diario, UN OCHA, ReliefWeb, El Nacional</em> y agencias globales.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/></svg></div>
+        <div class="card-content">
+          <h3>Filtro Temático y Geográfico</h3>
+          <p>Doble filtrado que aísla sismos, réplicas, servicios y acopios en Venezuela, descartando notas no vinculadas a la emergencia.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="card-content">
+          <h3>Síntesis y Deduplicación con IA</h3>
+          <p>Generación de resúmenes consolidados mediante modelos de lenguaje, agrupando réplicas y citando obligatoriamente todas las fuentes de origen.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg></div>
+        <div class="card-content">
+          <h3>Modal Interactivo en el Mapa</h3>
+          <p>Boletín accesible directamente desde el mapa con caché cada 4 horas para lectura rápida y mínimo costo de cómputo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 12: MÉTRICAS Y RESULTADOS GLOBALES -->
+  <section class="slide" data-index="11">
+    <div class="eyebrow reveal">Resultados e Impacto</div>
+    <h2 class="reveal">Cifras consolidadas de la operación</h2>
+    <div class="kpi-grid reveal">
+      <div class="kpi-box">
+        <div class="kpi-num">716</div>
+        <div class="kpi-label">Centros y Refugios</div>
+        <p>664 centros de acopio y 52 refugios verificados en 24 países (Venezuela y diáspora).</p>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-num">~3,000</div>
+        <div class="kpi-label">Registros Conciliados</div>
+        <p>Fichas de personas y servicios agregadas en tiempo real sin crear silos de datos.</p>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-num">1,878</div>
+        <div class="kpi-label">Intérpretes Voluntarios</div>
+        <p>Red de soporte idiomático (Interp-Aid) para rescate y asistencia multi-idioma.</p>
+      </div>
+    </div>
+    <div class="kpi-foot reveal">
+      <strong>109+ días de uptime ininterrumpido</strong> en producción con respuestas en menos de 0.2 segundos.
+    </div>
+  </section>
+
+  <!-- SLIDE 13: INTEGRACIÓN Y HELPMAPS -->
+  <section class="slide" data-index="12">
+    <div class="eyebrow reveal">Alianza Estratégica</div>
+    <h2 class="reveal">Integración con HelpMaps.net</h2>
+    <p class="sub reveal" style="margin-top:-0.8rem; margin-bottom:1rem;">Trabajamos bajo un modelo federado de <strong>autoridad por dominio</strong>, uniendo fuerzas con el equipo de HelpMaps:</p>
+    <table class="integ-table reveal">
+      <thead>
+        <tr>
+          <th>Dominio</th>
+          <th>Autoridad Canónica</th>
+          <th>Sincronización</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Centros de Acopio y Refugios</strong></td>
+          <td><span class="badge-pill">AcopioVE</span></td>
+          <td>HelpMaps consume y replica los puntos vía API automatizada con política <em>freshest-wins</em>.</td>
+        </tr>
+        <tr>
+          <td><strong>Pacientes en Hospitales</strong></td>
+          <td><span class="badge-pill">HelpMap VE</span></td>
+          <td>AcopioVE ingiere los datos clínicos en su motor de búsqueda protegiendo la identidad.</td>
+        </tr>
+        <tr>
+          <td><strong>Aportes Comunitarios</strong></td>
+          <td><span class="badge-pill">Compartido</span></td>
+          <td>Las sugerencias recibidas fluyen a la cola de moderación unificada sin duplicar registros.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SLIDE 14: RETOS SUPERADOS -->
+  <section class="slide" data-index="13">
+    <div class="eyebrow reveal">Ingeniería y Ética</div>
+    <h2 class="reveal">Retos técnicos y humanos superados</h2>
+    <ul class="list reveal">
+      <li><strong>Protección estricta de Privacidad (PII):</strong> Algoritmos automáticos de enmascaramiento de documentos de identidad, ocultamiento de GPS exacto y supresión de ubicación de menores de edad.</li>
+      <li><strong>Agregación sin Retención:</strong> Los datos sensibles de personas no se almacenan en disco; se concilian en memoria en cada consulta con caché inteligente para respetar a las fuentes de origen.</li>
+      <li><strong>Tolerancia a Fallos (Graceful Degradation):</strong> Si una API externa caía por saturación, el sistema la aislaba en milisegundos y continuaba operando con el resto.</li>
+    </ul>
+  </section>
+
+  <!-- SLIDE 15: OPERACIÓN Y RESILIENCIA -->
+  <section class="slide" data-index="14">
+    <div class="eyebrow reveal">Continuidad Operativa</div>
+    <h2 class="reveal">Estabilidad y buenas prácticas</h2>
+    <div class="grid-2x2 reveal">
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="card-content">
+          <h3>Seguridad Perimetral y RBAC</h3>
+          <p>Firewall UFW, protección Fail2Ban contra ataques de fuerza bruta y control granular de roles para moderadores.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg></div>
+        <div class="card-content">
+          <h3>Respaldos Diarios (DRP)</h3>
+          <p>Copias de seguridad cada 6 horas replicadas de forma cifrada en almacenamiento externo para cero pérdida de datos.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="card-content">
+          <h3>Edge Cache y Alta Velocidad</h3>
+          <p>TTFB de 0.16s y 100/100 en SEO. Diseñado para consumir pocos megas en teléfonos con planes limitados.</p>
+        </div>
+      </div>
+      <div class="grid-card">
+        <div class="icon-box"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="card-content">
+          <h3>Datos Abiertos CC-BY-4.0</h3>
+          <p>API pública y libre para que universidades, medios y organismos humanitarios construyan sobre nuestros datos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 16: CIERRE / FUTURO -->
+  <section class="slide" data-index="15">
+    <div class="eyebrow reveal">El Futuro</div>
+    <h1 class="reveal" style="max-width:18ch;">AcopioVE es ahora parte de HelpMaps.net</h1>
+    <p class="sub reveal">De una iniciativa ciudadana de emergencia a un ecosistema humanitario regional. Unimos tecnología, voluntarios y datos abiertos para responder con mayor rapidez ante cualquier evento futuro.</p>
+    <div class="reveal">
+      <a class="cta-btn" href="https://helpmaps.net" target="_blank" rel="noopener">
+        Explorar HelpMaps.net <span class="arrow-ico">→</span>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<!-- Controles de navegación -->
+<button class="click-zone left" onclick="go(-1)" aria-label="Anterior"></button>
+<button class="click-zone right" onclick="go(1)" aria-label="Siguiente"></button>
+
+<button class="arrow left" id="arrowLeft" onclick="go(-1)" aria-label="Anterior">←</button>
+<button class="arrow right" id="arrowRight" onclick="go(1)" aria-label="Siguiente">→</button>
+
+<div class="hint" id="hint"><span>← →</span> usa las flechas del teclado, click o desliza</div>
+
+<div class="nav-dots" id="dots"></div>
+
+<script>
+  const slideTitles = [
+    "Portada",
+    "El Problema",
+    "Centros de Acopio",
+    "Plataforma en Vivo",
+    "Ingesta & API",
+    "Verificación Cruzada",
+    "Tráfico y Pico 96h",
+    "Alcance Geográfico",
+    "Dispositivos & Canales",
+    "La Diáspora",
+    "Síntesis de Prensa",
+    "Resultados & Cifras",
+    "Integración HelpMaps",
+    "Retos Superados",
+    "Resiliencia",
+    "HelpMaps.net"
+  ];
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+
+  const dotsWrap = document.getElementById('dots');
+  slideTitles.forEach((title, i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'nav-dot-wrap';
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', title);
+    b.addEventListener('click', () => showSlide(i));
+    const tip = document.createElement('div');
+    tip.className = 'dot-tip';
+    tip.textContent = title;
+    wrap.appendChild(tip);
+    wrap.appendChild(b);
+    dotsWrap.appendChild(wrap);
+  });
+  const dots = dotsWrap.querySelectorAll('button');
+  const progressBar = document.getElementById('progressBar');
+  const progressTrack = document.getElementById('progressTrack');
+  const arrowLeft = document.getElementById('arrowLeft');
+  const arrowRight = document.getElementById('arrowRight');
+  const hint = document.getElementById('hint');
+
+  function showSlide(i){
+    if(i < 0 || i >= total || i === current) return;
+    slides[current].classList.remove('active');
+    slides[current].scrollTop = 0;
+    dots[current].classList.remove('active');
+    current = i;
+    slides[current].classList.add('active');
+    slides[current].scrollTop = 0;
+    dots[current].classList.add('active');
+    document.getElementById('curNum').textContent = String(current+1).padStart(2,'0');
+    progressBar.style.width = ((current+1)/total*100) + '%';
+    arrowLeft.disabled = current === 0;
+    arrowRight.disabled = current === total - 1;
+    hideHint();
+  }
+
+  function go(delta){ showSlide(current + delta); }
+
+  function hideHint(){ if(hint) hint.classList.remove('show'); }
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'ArrowRight' || e.key === ' ') go(1);
+    if(e.key === 'ArrowLeft') go(-1);
+    if(e.key === 'Home') showSlide(0);
+    if(e.key === 'End') showSlide(total - 1);
+  });
+
+  if(progressTrack){
+    progressTrack.addEventListener('click', (e) => {
+      const pct = e.clientX / window.innerWidth;
+      showSlide(Math.min(total - 1, Math.floor(pct * total)));
+    });
+  }
+
+  let touchStartX = 0;
+  let touchStartY = 0;
+  document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, {passive:true});
+  document.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].screenX - touchStartX;
+    const dy = e.changedTouches[0].screenY - touchStartY;
+    if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)){ dx < 0 ? go(1) : go(-1); }
+  }, {passive:true});
+
+  showSlide(0);
+
+  setTimeout(() => { if(hint) hint.classList.add('show'); }, 800);
+  setTimeout(hideHint, 5000);
+</script>
+
+</body>
+</html>

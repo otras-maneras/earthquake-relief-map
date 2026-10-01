@@ -4,8 +4,8 @@
 # Uso:  ./scripts/deploy.sh
 set -euo pipefail
 
-cd "$(dirname "$0")/.."   # raíz del repo 
-APP="centros-acopio"
+cd "$(dirname "$0")/../apps/web"   # app Next.js (apps/web)
+APP="${APP_SERVICE:-earthquake-relief-map}"
 PORT=4100
 
 echo "▶ Deploy $(date '+%F %T')  ·  commit $(git rev-parse --short HEAD 2>/dev/null || echo '?')"

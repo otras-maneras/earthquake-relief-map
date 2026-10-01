@@ -11,11 +11,11 @@ agentes de IA por igual.
   salvaguardas existentes (enmascarado de cédulas, sin GPS exacto de personas, menores
   sin ubicación, cifras de personas fuera del contenido SEO) no se relajan sin decisión
   explícita del responsable del proyecto.
-- **La rama `master` es la base de los despliegues.** Nunca se trabaja directo sobre ella.
+- **La rama `main` es la base de los despliegues.** Nunca se trabaja directo sobre ella.
 
 ## Flujo de trabajo
 
-1. **Rama por tarea**, partiendo de `master` actualizado:
+1. **Rama por tarea**, partiendo de `main` actualizado:
    `feature/<tema>`, `fix/<tema>` o `docs/<tema>`.
 2. **Commits**: convención `tipo(alcance): resumen` en minúsculas
    (ej. `feat(busquedas): unifica /busqueda-avanzada dentro de /busquedas`).
@@ -23,15 +23,15 @@ agentes de IA por igual.
 3. **Antes de dar por terminado cualquier cambio**:
 
    ```bash
-   npx tsc --noEmit     # debe salir limpio
-   npm run build        # debe compilar sin errores
+   npm run build        # desde la raíz: compila apps/web (necesita Postgres)
+   npm run typecheck    # debe salir limpio
    ```
 
    Si el cambio toca UI, verificarla de verdad (navegador o captura), no solo el build.
-4. **Pull request hacia `master`** con descripción de qué cambia y cómo se verificó.
+4. **Pull request hacia `main`** con descripción de qué cambia y cómo se verificó.
    No se hace merge del propio PR sin revisión de otra persona, salvo acuerdo explícito.
 5. **El deploy a producción lo ejecuta quien opera el servidor**, no forma parte del PR.
-   Mergear a `master` no despliega nada por sí solo.
+   Mergear a `main` no despliega nada por sí solo.
 
 ## Reglas duras
 
@@ -39,18 +39,16 @@ agentes de IA por igual.
   patrones ya están en `.gitignore` (`.env*`, `*.local.md`, `backups/`, `docs/internal/`,
   `/data-privado/`). Si un secreto llega a un commit, avisar de inmediato: hay que
   rotarlo, no basta con borrarlo.
-- **Historia de git**: no hacer `push --force` ni resets sobre `master`. Las ramas
+- **Historia de git**: no hacer `push --force` ni resets sobre `main`. Las ramas
   propias se pueden reescribir mientras no estén en revisión.
 - **Base de datos de producción**: ningún script escribe contra ella desde una rama de
-  trabajo. Las cargas de datos (`scripts/cargar-*.ts`, seeds) se coordinan con el
+  trabajo. Las cargas de datos (seeds en `apps/web/src/db/`) se coordinan con el
   responsable y se ejecutan aparte del ciclo de PR.
 - **Datos de personas**: no agregar campos nuevos de salida en `/api/personas`,
   `/api/busqueda-avanzada` ni `/v1/personas` sin revisar las salvaguardas de PII
   (`docs/SEGURIDAD.md`). En la duda, exponer menos.
-- **Comunicaciones** (campañas de correo/WhatsApp, bots): los scripts de campaña viven
-  en `scripts/privado/` (gitignored, solo en el servidor) porque contienen destinatarios
-  reales. No se ejecutan sin autorización explícita ni se traen al repositorio: consumen
-  cupos reales y llegan a gente real.
+- **Comunicaciones** (campañas de correo/WhatsApp, bots): los destinatarios nunca se versionan;
+  usa listas propias fuera del repositorio. Un envío mal hecho gasta cupos reales y llega a gente real.
 - **Documentación**: sin emojis. En español neutro. Si un cambio altera arquitectura,
   rutas o modelo de datos, actualizar `docs/ARQUITECTURA.md` en el mismo PR.
 
@@ -82,6 +80,6 @@ agentes de IA por igual.
 - Seguir el estilo del archivo que se edita (nombres, densidad de comentarios, idioma:
   comentarios en español).
 - Componentes de mapa client-only; el contenido SEO vive en el server component.
-- Texto de búsqueda siempre por `normalizeSearchText` (`src/lib/text.ts`).
-- Inputs de escritura siempre validados con Zod (`src/lib/validation.ts`).
-- Endpoints públicos nuevos llevan rate-limit (`src/lib/ratelimit.ts`) desde el día uno.
+- Texto de búsqueda siempre por `normalizeSearchText` (`apps/web/src/lib/text.ts`).
+- Inputs de escritura siempre validados con Zod (`apps/web/src/lib/validation.ts`).
+- Endpoints públicos nuevos llevan rate-limit (`apps/web/src/lib/ratelimit.ts`) desde el día uno.

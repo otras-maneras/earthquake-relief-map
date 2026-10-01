@@ -1,9 +1,9 @@
 #!/bin/bash
 # Backup de la base centros_acopio. Lo corre cron (ver crontab). Guarda los últimos 14 dumps.
 set -euo pipefail
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/../apps/web"
 DB=$(grep -E '^DATABASE_URL=' .env | cut -d= -f2-)
-DIR="$PWD/backups"
+DIR="${BACKUP_DIR:-$PWD/../../backups}"
 mkdir -p "$DIR"
 DATE=$(date +%Y%m%d_%H%M%S)
 pg_dump "$DB" | gzip > "$DIR/centros_acopio_$DATE.sql.gz"

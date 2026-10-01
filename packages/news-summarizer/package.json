@@ -1,0 +1,23 @@
+{
+  "name": "@earthquake-relief-map/news-summarizer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.0.1",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@google/genai": "^2.10.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}

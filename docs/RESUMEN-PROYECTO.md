@@ -1,7 +1,7 @@
 # AcopioVE — Resumen Ejecutivo y Resultados del Proyecto
 > **Nota (oct 2026):** el proyecto fue cerrado; los servicios en vivo mencionados abajo ya no están activos.
 > **Plataforma Humanitaria y de Datos Abiertos de Emergencia**  
-> Terremoto Venezuela 2026 · [acopiove.org](https://acopiove.org) · Ecosistema [helpmaps.net](https://helpmaps.net) · API Pública: [api.acopiove.org/v1](https://api.acopiove.org/v1)
+> Terremoto Venezuela 2026 · [acopiove.org](https://acopiove.org) · Ecosistema [helpmaps.net](https://helpmaps.net) · API Pública: [api.acopiove.org/v1](http://localhost:4100/v1)
 
 ---
 

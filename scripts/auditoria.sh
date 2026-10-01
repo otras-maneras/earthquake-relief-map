@@ -12,7 +12,7 @@
 # ──────────────────────────────────────────────────────────────────────────
 set -uo pipefail
 IFS=$'\n\t'
-cd "$(dirname "$0")/.." || exit 1
+cd "$(dirname "$0")/../apps/web" || exit 1
 
 APP="${APP:-https://acopiove.org}"
 API="${API:-https://api.acopiove.org}"

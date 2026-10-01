@@ -1,6 +1,7 @@
 # Arquitectura del sistema
 
 > Referencia técnica para desarrolladores. Última revisión: 2026-09-17 (Fusión HelpMaps y Landing SEO).
+> **Monorepo:** las rutas de este documento (`src/`, `public/`, `scripts/`…) son relativas a `apps/web/`.
 > Para el flujo de trabajo (ramas, verificación, deploy) ver `../CONTRIBUTING.md`.
 
 ## 1. Visión general

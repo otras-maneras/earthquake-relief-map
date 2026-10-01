@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcopioVE API — Ejemplo de Integración con Leaflet</title>
+    
+    <!-- Estilos de Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header {
+            background-color: #003d8f;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        #map {
+            flex-grow: 1;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Directorio Unificado de Ayuda Terremoto Venezuela 2026</h1>
+        <p>Integración en vivo consumiendo <code>http://localhost:4100/v1/puntos?format=geojson</code></p>
+    </header>
+
+    <div id="map"></div>
+
+    <!-- Scripts de Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script>
+        // Inicializar mapa centrado en la zona norte de Venezuela
+        const map = L.map('map').setView([10.5986, -66.9036], 9);
+
+        // Capa base de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Cargar datos GeoJSON desde la API pública de AcopioVE
+        fetch('http://localhost:4100/v1/puntos?format=geojson')
+            .then(res => {
+                if (!res.ok) throw new Error('Error al conectar con la API');
+                return res.json();
+            })
+            .then(geojson => {
+                // Agregar la capa GeoJSON con popups personalizados
+                L.geoJSON(geojson, {
+                    pointToLayer: function(feature, latlng) {
+                        // Personalización básica de colores por tipo de punto
+                        let color = '#7f8c8d';
+                        if (feature.properties.tipo === 'acopio') color = '#e67e22';
+                        if (feature.properties.tipo === 'refugio') color = '#27ae60';
+                        if (feature.properties.tipo === 'salud') color = '#e74c3c';
+                        
+                        return L.circleMarker(latlng, {
+                            radius: 8,
+                            fillColor: color,
+                            color: '#ffffff',
+                            weight: 2,
+                            opacity: 1,
+                            fillOpacity: 0.8
+                        });
+                    },
+                    onEachFeature: function(feature, layer) {
+                        const p = feature.properties;
+                        const popupContent = `
+                            <div style="font-family: sans-serif;">
+                                <h3 style="margin: 0 0 5px 0; color: #003d8f;">${p.nombre}</h3>
+                                <p style="margin: 0 0 5px 0;"><strong>Tipo:</strong> ${p.tipo.toUpperCase()}</p>
+                                ${p.descripcion ? `<p style="margin: 0 0 5px 0;"><strong>Necesidades:</strong> ${p.descripcion}</p>` : ''}
+                                ${p.telefono ? `<p style="margin: 0 0 5px 0;"><strong>Contacto:</strong> ${p.telefono}</p>` : ''}
+                                ${p.fuente ? `<p style="margin: 0 0 0 0; font-size: 0.8rem; color: #7f8c8d;"><strong>Fuente:</strong> ${p.fuente}</p>` : ''}
+                            </div>
+                        `;
+                        layer.bindPopup(popupContent);
+                    }
+                }).addTo(map);
+            })
+            .catch(err => {
+                console.error(err);
+                alert('No se pudieron cargar los datos de la API pública.');
+            });
+    </script>
+</body>
+</html>

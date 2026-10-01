@@ -4,16 +4,17 @@ After=network.target postgresql.service
 
 [Service]
 Type=simple
-User=acopiove  # ajusta al usuario de tu servidor
+# Ajusta usuario, grupo y rutas a tu servidor.
+User=acopiove
 Group=acopiove
-WorkingDirectory=/opt/centros-acopio
+WorkingDirectory=/opt/earthquake-relief-map/apps/web
 Environment=NODE_ENV=production
 Environment=HOSTNAME=127.0.0.1
 ExecStart=/usr/bin/npm run start
 Restart=always
 RestartSec=5
-StandardOutput=append:/opt/centros-acopio/logs/web.log
-StandardError=append:/opt/centros-acopio/logs/web.log
+StandardOutput=append:/opt/earthquake-relief-map/logs/web.log
+StandardError=append:/opt/earthquake-relief-map/logs/web.log
 
 [Install]
 WantedBy=multi-user.target

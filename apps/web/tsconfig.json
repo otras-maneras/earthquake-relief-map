@@ -37,8 +37,6 @@
   ],
   "exclude": [
     "node_modules",
-    "scripts",
-    "projects",
-    "_archivo_revisar"
+    "scripts"
   ]
 }
