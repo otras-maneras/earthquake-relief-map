@@ -1,4 +1,4 @@
-// Helpers compartidos de la API pública v1 (api.acopiove.org/v1).
+// Helpers compartidos de la API pública v1.
 // CORS abierto, envoltura JSON consistente, caché de CDN y rate-limit por IP.
 
 import { blockedFor, hit, clientIp } from '@/lib/ratelimit';
@@ -6,7 +6,9 @@ import { blockedFor, hit, clientIp } from '@/lib/ratelimit';
 export const DATA_LICENSE = 'CC-BY-4.0';
 export const DATA_ATTRIBUTION = 'Datos: AcopioVE (acopiove.org), CC-BY-4.0';
 export const LICENSE_URL = 'https://creativecommons.org/licenses/by/4.0/';
-export const API_BASE = 'https://api.acopiove.org/v1';
+// URL pública de la API, para enlaces y OpenAPI. Configúrala con API_PUBLIC_BASE_URL
+// (ej. https://api.tu-dominio.org/v1); por defecto apunta a una instancia local.
+export const API_BASE = (process.env.API_PUBLIC_BASE_URL || 'http://localhost:4100/v1').replace(/\/+$/, '');
 
 // Cache de borde: la data cambia poco; sirve ~5 min y refresca en background.
 export const PUBLIC_CACHE = 'public, s-maxage=300, stale-while-revalidate=600';

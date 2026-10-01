@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink, Code, Database, ShieldCheck, Globe, RefreshCw, MessageCircle } from 'lucide-react';
+import { API_BASE } from '@/lib/api/http';
 import { SiteHeader, SiteFooter, Eyebrow, ES_NAV, BRAND_PALETTE } from '@/components/site/Chrome';
 
 export const revalidate = 300;
@@ -65,7 +66,7 @@ export default function ApiDocsPage() {
           </p>
           <div className="flex flex-wrap gap-3 mt-6">
             <a
-              href="https://api.acopiove.org/v1/docs"
+              href={`${API_BASE}/docs`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-ap-primary text-ap-surface text-[14px] font-bold px-4 py-2.5 rounded-lg hover:opacity-90 transition-opacity"
@@ -74,7 +75,7 @@ export default function ApiDocsPage() {
               <ExternalLink size={14} />
             </a>
             <a
-              href="https://api.acopiove.org/v1/openapi.json"
+              href={`${API_BASE}/openapi.json`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-ap-border bg-ap-surface text-ap-primary text-[14px] font-bold px-4 py-2.5 rounded-lg hover:bg-ap-surface-hover transition-colors"
@@ -149,7 +150,7 @@ export default function ApiDocsPage() {
                       URL Base de Producción
                     </div>
                     <div className="mt-2 font-mono text-[13px] bg-ap-bg border border-ap-border p-2 rounded select-all break-all">
-                      https://api.acopiove.org/v1
+                      {API_BASE}
                     </div>
                   </div>
                   <div className="border border-ap-border rounded-xl p-4 bg-ap-surface/40">
@@ -251,10 +252,10 @@ export default function ApiDocsPage() {
                   </ul>
                   <pre className="bg-ap-primary text-ap-surface-hover p-4 rounded-xl font-mono text-[12.5px] overflow-x-auto mt-3 leading-relaxed">
 {`# Refugios más cercanos a un punto (ideal para un chatbot)
-curl "https://api.acopiove.org/v1/puntos?tipo=refugio&near=10.6,-66.93&radius=10"
+curl "${API_BASE}/puntos?tipo=refugio&near=10.6,-66.93&radius=10"
 
 # Todo el directorio en GeoJSON para un mapa
-curl "https://api.acopiove.org/v1/puntos?format=geojson"`}
+curl "${API_BASE}/puntos?format=geojson"`}
                   </pre>
                 </div>
 
@@ -365,7 +366,7 @@ curl "https://api.acopiove.org/v1/puntos?format=geojson"`}
               </h2>
               <div className="text-[15px] text-ap-secondary mt-4 space-y-4 leading-relaxed">
                 <p>
-                  Además de la API de datos en <code className="font-mono">api.acopiove.org</code>, el sitio principal expone un
+                  Además de la API de datos (<code className="font-mono">/v1</code>), el sitio principal expone un
                   <strong> resumen periodístico en Markdown</strong> sobre la emergencia sísmica, generado a partir de fuentes RSS
                   verificadas (El País, DW, NYT, BBC Mundo, etc.). El texto se guarda en caché en disco y se puede reutilizar sin
                   volver a llamar al modelo de IA. Los artículos RSS se filtran por relevancia humanitaria (sismo, réplicas, refugios,
@@ -374,7 +375,7 @@ curl "https://api.acopiove.org/v1/puntos?format=geojson"`}
                 <div className="bg-sky-50 border border-sky-200 rounded-xl p-4 text-[14px] text-sky-950">
                   <strong>Base URL:</strong>{' '}
                   <code className="font-mono">https://acopiove.org/api/news</code> — distinta del hub de datos{' '}
-                  <code className="font-mono">https://api.acopiove.org/v1</code>.
+                  <code className="font-mono">{API_BASE}</code>.
                 </div>
 
                 <div className="border border-ap-border rounded-xl p-4 bg-ap-surface/40 space-y-4">
@@ -466,7 +467,7 @@ curl "https://api.acopiove.org/v1/puntos?format=geojson"`}
                     <li><code className="font-mono bg-ap-bg border border-ap-border px-1 py-0.5 rounded">estado</code> — <code className="font-mono">desaparecido</code> | <code className="font-mono">localizado</code></li>
                   </ul>
                   <pre className="bg-ap-primary text-ap-surface-hover p-4 rounded-xl font-mono text-[12.5px] overflow-x-auto mt-3 leading-relaxed">
-{`curl "https://api.acopiove.org/v1/personas?q=maria%20gonzalez"
+{`curl "${API_BASE}/personas?q=maria%20gonzalez"
 
 # → { "data": [ { "nombre": "María González", "estado": "localizado",
 #       "ubicacion_general": "Hospital ... (Caracas)", "foto": "...",
@@ -506,7 +507,7 @@ curl "https://api.acopiove.org/v1/puntos?format=geojson"`}
                     un indicador <code className="font-mono">possible_duplicate</code> si detectamos un punto cercano y parecido.
                   </p>
                   <pre className="bg-ap-primary text-ap-surface-hover p-4 rounded-xl font-mono text-[12.5px] overflow-x-auto mt-2 leading-relaxed">
-{`curl -X POST https://api.acopiove.org/v1/submissions \\
+{`curl -X POST ${API_BASE}/submissions \\
   -H "Content-Type: application/json" \\
   -d '{
     "name": "Centro de Acopio Plaza Bolívar",
@@ -520,7 +521,7 @@ curl "https://api.acopiove.org/v1/puntos?format=geojson"`}
 
 # → 201 { "data": { "id": "…", "status": "pending",
 #          "possible_duplicate": false },
-#        "meta": { "status_url": "https://api.acopiove.org/v1/submissions/…" } }`}
+#        "meta": { "status_url": "${API_BASE}/submissions/…" } }`}
                   </pre>
                 </div>
 
@@ -583,14 +584,14 @@ export async function POST(req) {
     // La persona compartió su ubicación → 3 refugios más cercanos
     const { lat, lng } = msg.location;
     const r = await fetch(
-      \`https://api.acopiove.org/v1/puntos?tipo=refugio&near=\${lat},\${lng}&radius=15&limit=3\`
+      \`${API_BASE}/puntos?tipo=refugio&near=\${lat},\${lng}&radius=15&limit=3\`
     ).then(r => r.json());
     respuesta = r.data.length
       ? 'Refugios más cercanos:\\n' + r.data.map(p => \`• \${p.nombre} (\${p.ciudad})\`).join('\\n')
       : 'No encontré refugios cerca. Mira el mapa: acopiove.org';
 
   } else if (texto.includes('telefono') || texto.includes('emergencia')) {
-    const r = await fetch('https://api.acopiove.org/v1/puntos?tipo=telefono&limit=5')
+    const r = await fetch('${API_BASE}/puntos?tipo=telefono&limit=5')
       .then(r => r.json());
     respuesta = 'Teléfonos de emergencia:\\n' +
       r.data.map(p => \`• \${p.nombre}: \${p.telefono}\`).join('\\n');
@@ -598,7 +599,7 @@ export async function POST(req) {
   } else if (texto.startsWith('buscar ')) {
     const nombre = texto.replace('buscar ', '');
     const r = await fetch(
-      \`https://api.acopiove.org/v1/personas?q=\${encodeURIComponent(nombre)}\`
+      \`${API_BASE}/personas?q=\${encodeURIComponent(nombre)}\`
     ).then(r => r.json());
     respuesta = r.data.length
       ? r.data.map(p => \`\${p.nombre} — \${p.estado} (\${p.ubicacion_general || 's/d'})\`).join('\\n')
@@ -660,7 +661,7 @@ export async function POST(req) {
                   <pre className="bg-ap-primary text-ap-surface-hover p-4 rounded-xl font-mono text-[12.5px] overflow-x-auto mt-2 leading-relaxed">
 {`const lat = 10.48; // Caracas
 const lng = -66.90;
-const url = \`https://api.acopiove.org/v1/centros?near=\${lat},\${lng}&limit=3\`;
+const url = \`${API_BASE}/centros?near=\${lat},\${lng}&limit=3\`;
 
 fetch(url)
   .then(res => res.json())
@@ -680,7 +681,7 @@ fetch(url)
 const map = L.map('map').setView([10.48, -66.90], 12);
 
 // Obtener datos directamente en formato GeoJSON
-fetch('https://api.acopiove.org/v1/centros?format=geojson')
+fetch('${API_BASE}/centros?format=geojson')
   .then(res => res.json())
   .then(geojsonData => {
     L.geoJSON(geojsonData, {
