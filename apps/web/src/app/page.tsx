@@ -483,7 +483,7 @@ export default async function LandingPage() {
                   Resumen Ejecutivo & Resultados
                 </h3>
                 <p className="text-[13px] text-ap-secondary mt-2 leading-relaxed">
-                  Presentación y balance institucional del proyecto: volumen de datos manejados, impacto con la diáspora en 24
+                  Presentación y balance institucional del proyecto: volumen de datos manejados, impacto con la diáspora en 22
                   países, alianza con HelpMaps y lecciones aprendidas.
                 </p>
               </div>
