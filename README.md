@@ -1,111 +1,110 @@
 # earthquake-relief-map
 
-> **Estado: proyecto cerrado y archivado (octubre 2026).** Código MIT, datos CC-BY-4.0.
-> Sin mantenimiento activo; los servicios en vivo (`acopiove.org`, `api.acopiove.org`) fueron dados de baja.
->
-> **EN:** Archived open-source monorepo from the 2026 Venezuela earthquake response: a map, directory and
-> API of donation centers, shelters and emergency hotlines (716 centers, 22 countries), plus a people-search
-> aggregator, WhatsApp/Telegram bots and an AI news summarizer. MIT code, CC-BY-4.0 data. No longer maintained.
+**English** | [Español](README.es.md)
 
-## Qué es
+> **Status: closed and archived project (October 2026).** MIT code, CC-BY-4.0 data.
+> No longer maintained; the live services (`acopiove.org`, `api.acopiove.org`) have been shut down.
 
-**AcopioVE** fue una plataforma de respuesta humanitaria construida durante el terremoto de Venezuela de 2026.
-Resolvía un problema concreto: la información de ayuda estaba dispersa en decenas de grupos y sitios, y nadie sabía
-**dónde entregar una donación, dónde había un refugio abierto o a quién llamar**. AcopioVE reunió y verificó esa
-información, la publicó como datos abiertos y la hizo consultable por personas, apps y bots.
+## What it is
 
-Llegó a **716 centros en 22 países** (664 centros de acopio y 52 refugios), 78 líneas de emergencia verificadas y
-una red de 1.878 intérpretes voluntarios, con coordinación para la diáspora.
+**AcopioVE** was a humanitarian response platform built during the 2026 Venezuela earthquake.
+It solved a concrete problem: relief information was scattered across dozens of groups and sites, and nobody knew
+**where to drop off a donation, which shelters were open, or who to call**. AcopioVE collected and verified that
+information, published it as open data, and made it searchable by people, apps and bots.
 
-## Qué hace
+It reached **716 centers in 22 countries** (664 donation centers and 52 shelters), 78 verified emergency hotlines and
+a network of 1,878 volunteer interpreters, with coordination for the diaspora.
 
-- **Directorio y mapa de centros de acopio y refugios.** Cada punto indica qué recibe, qué necesita ahora, horario,
-  contacto y cuándo se confirmó por última vez. Los clusters del mapa se colorean por **frescura de la
-  verificación** (verde: confirmado esta semana · ámbar: vigente · rojo: sin actualizar), no por cantidad.
-- **Filtro por insumo y por país**, para orientar envíos desde la diáspora (agua, alimentos, higiene, medicinas…).
-- **API pública de solo lectura (`/v1`)** en JSON, GeoJSON y CSV, con rate limit y caché de borde. Ver [API](#api).
-- **Búsqueda de personas (reunificación).** Consulta en paralelo a las organizaciones de origen y concilia
-  resultados en memoria, **sin almacenar nada**, con cédulas enmascaradas y sin ubicación de menores.
-- **Capas científicas y satelitales:** ShakeMap y réplicas (USGS), alertas globales (GDACS), clima (Open-Meteo),
-  evaluación de daños (Microsoft AI for Good / OCHA HDX) y un visor 3D de edificios dañados.
-- **Boletín de prensa con IA:** resume medios nacionales e internacionales (BBC Mundo, DW, OCHA, ReliefWeb,
-  Efecto Cocuyo…) para contrarrestar rumores.
-- **Panel de administración** con moderación de aportes ciudadanos, roles y campañas de actualización
-  de datos por WhatsApp, correo y Telegram.
-- **Bots de WhatsApp y Telegram** que responden con el centro o refugio más cercano y buscan familiares.
-- **SEO y accesibilidad:** directorios renderizados en servidor, ligeros para conexiones precarias.
+## What it does
+
+- **Directory and map of donation centers and shelters.** Each point shows what it accepts, what it needs right now,
+  opening hours, contact details and when it was last confirmed. Map clusters are colored by **verification
+  freshness** (green: confirmed this week · amber: still current · red: not updated), not by count.
+- **Filter by supply type and by country**, to guide shipments from the diaspora (water, food, hygiene, medicine…).
+- **Public read-only API (`/v1`)** in JSON, GeoJSON and CSV, with rate limiting and edge caching. See [API](#api).
+- **People search (family reunification).** Queries the source organizations in parallel and reconciles the
+  results in memory, **storing nothing**, with masked national ID numbers and no location data for minors.
+- **Scientific and satellite layers:** ShakeMap and aftershocks (USGS), global alerts (GDACS), weather (Open-Meteo),
+  damage assessment (Microsoft AI for Good / OCHA HDX) and a 3D viewer of damaged buildings.
+- **AI news briefing:** summarizes national and international outlets (BBC Mundo, DW, OCHA, ReliefWeb,
+  Efecto Cocuyo…) to counter rumors.
+- **Admin panel** with moderation of citizen submissions, roles, and data-update campaigns
+  via WhatsApp, email and Telegram.
+- **WhatsApp and Telegram bots** that reply with the nearest center or shelter and search for relatives.
+- **SEO and accessibility:** server-rendered directories, lightweight for poor connections.
 
 ## API
 
-Base: `http://localhost:4100/v1` en tu instancia (el servicio público ya no existe).
+Base: `http://localhost:4100/v1` on your own instance (the public service no longer exists).
+Endpoint and parameter names are in Spanish, as in the original API.
 
-| Endpoint | Devuelve |
+| Endpoint | Returns |
 |---|---|
-| `GET /v1/centros`, `/v1/centros/{id}` | Centros de acopio y refugios |
-| `GET /v1/telefonos` | Líneas de emergencia y brigadas |
-| `GET /v1/puntos` | Vista unificada (acopio, refugio, salud, teléfono) |
-| `GET /v1/personas?q=` | Búsqueda de personas reportadas, PII-segura |
-| `POST /v1/submissions` | Sugerir un punto (entra a una cola de moderación) |
-| `GET /v1/meta`, `/v1/openapi.json` | Conteos y especificación OpenAPI 3.1 |
+| `GET /v1/centros`, `/v1/centros/{id}` | Donation centers and shelters |
+| `GET /v1/telefonos` | Emergency hotlines and rescue teams |
+| `GET /v1/puntos` | Unified view (donation center, shelter, health, phone) |
+| `GET /v1/personas?q=` | Search for reported people, PII-safe |
+| `POST /v1/submissions` | Suggest a point (goes into a moderation queue) |
+| `GET /v1/meta`, `/v1/openapi.json` | Counts and OpenAPI 3.1 specification |
 
-Filtros: `tipo`, `estado`, `ciudad`, `pais`, `updatedSince`, `near=lat,lng&radius=km`, `limit`, `offset`,
-`format=json|geojson|csv`. Ejemplos en [`examples/`](examples).
+Filters: `tipo` (type), `estado` (state), `ciudad` (city), `pais` (country), `updatedSince`,
+`near=lat,lng&radius=km`, `limit`, `offset`, `format=json|geojson|csv`. Examples in [`examples/`](examples).
 
 ```bash
 curl 'http://localhost:4100/v1/puntos?tipo=refugio&near=10.49,-66.88&radius=15&limit=3'
 ```
 
-## Estructura
+## Structure
 
 ```
-apps/web/                  App Next.js 16 + PostgreSQL: sitio, panel admin y API pública /v1
-packages/chat-bots/        Bots de WhatsApp/Telegram y campañas salientes (Node, standalone)
-packages/news-summarizer/  Boletín de prensa sintetizado con IA (Node, standalone)
-examples/                  Clientes de ejemplo de la API (curl, Node, Python, Leaflet, webhook)
-data/                      Snapshot final de datos abiertos (CSV/JSON/GeoJSON, CC-BY-4.0)
-docs/                      Arquitectura, seguridad/PII, fuentes y auditorías
-scripts/                   Deploy, backup, auditoría, gate anti-PII y generador de snapshots
-deploy/                    Unidad systemd de ejemplo
+apps/web/                  Next.js 16 + PostgreSQL app: website, admin panel and public /v1 API
+packages/chat-bots/        WhatsApp/Telegram bots and outbound campaigns (Node, standalone)
+packages/news-summarizer/  AI-generated news briefing (Node, standalone)
+examples/                  Sample API clients (curl, Node, Python, Leaflet, webhook)
+data/                      Final open-data snapshot (CSV/JSON/GeoJSON, CC-BY-4.0)
+docs/                      Architecture, security/PII, sources and audits (in Spanish)
+scripts/                   Deploy, backup, audit, anti-PII gate and snapshot generator
+deploy/                    Sample systemd unit
 ```
 
-Cada app/paquete tiene su propio `package.json` y lockfile (versiones de TypeScript y Node distintas), sin
-*workspaces*. Desde la raíz, `npm run <dev|build|typecheck|db:push|check:pii>` delega en `apps/web` y
-`npm run install:all` instala todo.
+Each app/package has its own `package.json` and lockfile (different TypeScript and Node versions), with no
+*workspaces*. From the root, `npm run <dev|build|typecheck|db:push|check:pii>` delegates to `apps/web` and
+`npm run install:all` installs everything.
 
-**Stack:** Next.js 16 (App Router, React 19, TypeScript), Tailwind 3, PostgreSQL + Drizzle ORM, MapLibre GL y
-Leaflet, auth con JWT (`jose`) + bcrypt y RBAC por rol.
+**Stack:** Next.js 16 (App Router, React 19, TypeScript), Tailwind 3, PostgreSQL + Drizzle ORM, MapLibre GL and
+Leaflet, JWT auth (`jose`) + bcrypt and role-based access control.
 
-## Puesta en marcha
+## Getting started
 
 ```bash
-cp apps/web/.env.example apps/web/.env   # mínimo: DATABASE_URL y JWT_SECRET
+cp apps/web/.env.example apps/web/.env   # minimum: DATABASE_URL and JWT_SECRET
 npm run install:all
-npm run db:push          # crea las tablas (Drizzle)
-npm run db:seed          # superadmin inicial
-npm run dev              # http://localhost:4100  ·  API en /v1
+npm run db:push          # creates the tables (Drizzle)
+npm run db:seed          # initial superadmin
+npm run dev              # http://localhost:4100  ·  API at /v1
 ```
 
-Requiere Node 20+ y PostgreSQL. `npm run build` necesita un Postgres accesible con el esquema creado, incluso
-en CI. Los bots y el resumidor se arrancan por separado; ver el README de cada paquete.
+Requires Node 20+ and PostgreSQL. `npm run build` needs a reachable Postgres with the schema already created, even
+in CI. The bots and the summarizer are started separately; see each package's README.
 
-Las integraciones externas (personas, daños, noticias IA, WhatsApp/correo/Telegram) son **opcionales** y se
-apagan sin su clave. Varias dependen de servicios de terceros que pueden haber cambiado o desaparecido.
+External integrations (people search, damage data, AI news, WhatsApp/email/Telegram) are **optional** and turn
+off without their key. Several depend on third-party services that may have changed or disappeared.
 
-## Datos
+## Data
 
-[`data/`](data) contiene los 716 centros y 78 teléfonos del 2026-10-01 (CSV, JSON, GeoJSON). Pueden estar
-desactualizados: nadie los verifica ya. Regenerable desde una instancia propia con `scripts/generate-snapshots.sh`.
-Para cargarlos en una base nueva, usa estos archivos como punto de partida.
+[`data/`](data) contains the 716 centers and 78 hotlines as of 2026-10-01 (CSV, JSON, GeoJSON). They may be
+out of date: nobody verifies them anymore. They can be regenerated from your own instance with
+`scripts/generate-snapshots.sh`. To load them into a new database, use these files as a starting point.
 
-## Privacidad
+## Privacy
 
-Los datos de personas **nunca se persistían**: se consultaban en vivo y se conciliaban en memoria, con cédulas
-enmascaradas y sin ubicación de menores. Si lo despliegas, mantén esas salvaguardas y corre `npm run check:pii`
-antes de cada despliegue. Ver [`docs/SEGURIDAD.md`](docs/SEGURIDAD.md).
+People data was **never persisted**: it was queried live and reconciled in memory, with masked national ID numbers
+and no location data for minors. If you deploy it, keep those safeguards and run `npm run check:pii`
+before every deployment. See [`docs/SEGURIDAD.md`](docs/SEGURIDAD.md) (in Spanish).
 
-## Licencias
+## Licenses
 
-- Código: [MIT](LICENSE). Datos de `data/`: **CC-BY-4.0**, atribución "Datos: AcopioVE (acopiove.org)".
-- Las marcas de terceros (HelpMaps y otras fuentes) pertenecen a sus dueños.
+- Code: [MIT](LICENSE). Data in `data/`: **CC-BY-4.0**, attribution "Data: AcopioVE (acopiove.org)".
+- Third-party trademarks (HelpMaps and other sources) belong to their owners.
 
-Documentación: [`docs/`](docs/README.md) · Contribuir: [`CONTRIBUTING.md`](CONTRIBUTING.md) · Seguridad: [`SECURITY.md`](SECURITY.md)
+Documentation: [`docs/`](docs/README.md) · Contributing: [`CONTRIBUTING.md`](CONTRIBUTING.md) · Security: [`SECURITY.md`](SECURITY.md)
